@@ -9,7 +9,7 @@ export default class BuildingDisclaimer extends React.Component<any, any> {
       <StepList steps={
         [
           'Github repository setup',
-          'React project setup, this has been twice done since the first time I forgot to set the language to typescript... My bad.',
+          'React project setup, this has been done twice since the first time I forgot to set the language to typescript... My bad.',
           'Github Pages deploy, this was a bit tricky but it actually do not more then commit production build into gh-pages branch and then push to origin.',
           'Initial page setup, which is what you\'re currently viewing, I swear it\'ll get better.',
           'Responsive layout.'
