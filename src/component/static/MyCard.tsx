@@ -8,7 +8,7 @@ export default class MyCard extends React.Component<any, any> {
         title={'Andrea Storace'}
         descriptions={[
           'Computer Science Bachelor Graduate',
-          'Software Engineer Student',
+          'Software Engineering Student',
           'Junior Web Developer'
         ]}
         featuredLinks={[
