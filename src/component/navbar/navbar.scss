@@ -1,0 +1,50 @@
+@import "../../styles/abstract/variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+
+$header-height: 5rem;
+
+.custom-navbar {
+  border: 1px solid white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  transition: background-color .2s linear;
+
+  &.alternative-bg {
+    background: $dark;
+  }
+
+  & .main-container {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid red;
+    padding: 1rem;
+
+    & * {
+      height: 100%;
+    }
+
+    & .right-container, .left-container {
+      border: 1px solid green;
+      flex: 1 50px;
+      max-width: 33%;
+    }
+
+    & .right-container {
+      text-align: right;
+    }
+
+    & .left-container {
+      text-align: left;
+    }
+  }
+
+}

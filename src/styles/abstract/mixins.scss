@@ -1,0 +1,23 @@
+@mixin scroll-animation($scroll, $delay) {
+  /* Pause the animation */
+  animation-play-state: paused;
+
+  /* Bind the animation to scroll */
+  animation-delay: calc(#{$scroll} * #{$delay});
+
+  /* These last 2 properites clean up overshoot weirdness */
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+@mixin font($family, $style: normal, $variant: normal, $weight: normal, $stretch: normal, $size: medium, $lineHeight: normal) {
+  font-family: #{$family};
+  font-style: $style;
+  font-variant: $variant;
+  font-weight: $weight;
+  font-stretch: $stretch;
+  font-size: $size;
+  line-height: $lineHeight;
+}
+
+@import "~bootstrap/scss/mixins";

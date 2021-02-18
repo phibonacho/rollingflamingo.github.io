@@ -1,0 +1,31 @@
+@import "../../styles/abstract/variables";
+
+.disclaimer {
+  @include media-breakpoint-up(md) {
+    width: 75%;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    width: 50%;
+  }
+
+  border-radius: 1rem;
+  margin: auto;
+  background: $light;
+  color: $dark;
+  box-shadow: 4px 10px 3px rgba(0,0,0,0.4);
+
+  @each $color, $value in $theme-colors {
+    &.#{$color} {
+      border-left: .5rem solid $value;
+    }
+  }
+
+  &-header {
+    padding: .7rem 2rem;
+  }
+
+  &-body {
+    padding: 1rem 2rem;
+  }
+}
