@@ -45,10 +45,7 @@ export default class App extends React.Component<IAppProps, IAppState>{
           }}>
             <Navbar
               rightContent={
-                <div>
-                  <span>Switch theme</span>
-                  <Toggle id={`theme-switch`} onClick={this.toggleTheme}/>
-                </div>
+                <Toggle id={`theme-switch`} onClick={this.toggleTheme}/>
               }
             />
             <HeroBanner
