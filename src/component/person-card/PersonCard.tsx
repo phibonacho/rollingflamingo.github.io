@@ -2,11 +2,14 @@ import React from "react";
 import IPersonCardProps, {IPersonCardState} from "./IPersonCard";
 import './person-card.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import ThemeContext from "../theme/ThemeContext";
 
 export default class PersonCard extends React.Component<IPersonCardProps, IPersonCardState> {
+  static contextType = ThemeContext;
+
   render() {
     return (
-      <>
+      <div className={`person-card ${this.context.theme}`}>
         <h1>{this.props.title}</h1>
         <div className={'description-content'}>
           {this.props.descriptions.map((description, i) => (
@@ -24,7 +27,7 @@ export default class PersonCard extends React.Component<IPersonCardProps, IPerso
             </ul>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }

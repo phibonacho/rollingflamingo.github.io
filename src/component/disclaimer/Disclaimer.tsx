@@ -2,14 +2,13 @@ import * as React from "react";
 import IDisclaimerProps, {IDisclaimerState} from "./IDisclaimer";
 
 import './disclaimer.scss'
+import ThemeContext from "../theme/ThemeContext";
 
 export default class Disclaimer extends React.Component<IDisclaimerProps, IDisclaimerState> {
-  public componentDidMount() {
-    console.log(this.props.children)
-  }
+  static contextType = ThemeContext;
 
   public render() {
-    return (<div className={'disclaimer'}>
+    return (<div className={`disclaimer ${this.context.theme}`}>
       <div className={'disclaimer-header'}>
         <h2>{this.props.title}</h2>
       </div>

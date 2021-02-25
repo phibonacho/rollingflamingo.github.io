@@ -1,4 +1,9 @@
 @import "./styles/abstract/variables";
+@import "./styles/typography/poppins";
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
 
 body {
   background: $dark;
@@ -13,5 +18,5 @@ body {
 }
 
 :root * {
-  @include scroll-animation(var(--scroll), -1s);
+  //@include scroll-animation(var(--scroll), -1s);
 }

@@ -1,16 +1,14 @@
 import * as React from "react";
 import IMilestoneProps, {IMilestoneState} from "./IStepList";
 import './step-list.scss';
+import ThemeContext from "../theme/ThemeContext";
 
 export default class StepList extends React.Component<IMilestoneProps, IMilestoneState> {
-
-  public componentDidMount() {
-    console.log(this.props.steps);
-  }
+  static contextType = ThemeContext;
 
   public render() {
     return (
-      <div className={'milestone'}>
+      <div className={`milestone ${this.context.theme}`}>
         <ul>
           {this.props.steps.map((step, i) => (
             <li key={i}>{step}</li>

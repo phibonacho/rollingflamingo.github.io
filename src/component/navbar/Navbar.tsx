@@ -1,16 +1,11 @@
 import INavbarProps , { INavbarState } from "./INavbar";
 import * as React from "react";
 import './navbar.scss';
+import ThemeContext from "../theme/ThemeContext";
 
 export default class Navbar extends React.Component<INavbarProps, INavbarState> {
-
-    /*
-    *     window.addEventListener('scroll', () => {
-      console.log(window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
-      document.body.style.setProperty('--scroll', (window.pageYOffset / (document.body.offsetHeight - window.innerHeight)).toString());
-    }, false);
-    * */
-  private selector: React.RefObject<HTMLHeadElement>;
+  static contextType = ThemeContext;
+  private readonly selector: React.RefObject<HTMLHeadElement>;
 
   public constructor(props: INavbarProps) {
     super(props);
@@ -32,13 +27,13 @@ export default class Navbar extends React.Component<INavbarProps, INavbarState> 
 
   public render() {
     return (
-      <header ref={this.selector} className={`custom-navbar ${this.state.transform ? 'alternative-bg' : ''}`}>
+      <header ref={this.selector} className={`custom-navbar ${this.context.theme} ${this.state.transform ? 'opaque' : ''}`}>
         <div className={'main-container'}>
           <div className={'left-container'}>
-            <p>phibonachos@2021<span className={'blink'}>_</span></p>
+            { this.props.leftContent }
           </div>
           <div className={'right-container'}>
-            <p>I am right container content</p>
+            { this.props.rightContent }
           </div>
         </div>
       </header>);

@@ -1,6 +1,9 @@
 @import "../../styles/abstract/variables";
 
 .disclaimer {
+  border-radius: 1rem;
+  margin: auto;
+
   @include media-breakpoint-up(md) {
     width: 75%;
   }
@@ -9,11 +12,15 @@
     width: 50%;
   }
 
-  border-radius: 1rem;
-  margin: auto;
-  background: $light;
-  color: $dark;
-  box-shadow: 4px 10px 3px rgba(0,0,0,0.4);
+  &-header {
+    padding: .7rem 2rem;
+  }
+
+  &-body {
+    padding: 1rem 2rem;
+  }
+
+  /* Theming section */
 
   @each $color, $value in $theme-colors {
     &.#{$color} {
@@ -21,11 +28,16 @@
     }
   }
 
-  &-header {
-    padding: .7rem 2rem;
+  &.light {
+    background: $light;
+    color: $dark;
+    box-shadow: 4px 10px 3px rgba(0,0,0,0.4);
   }
 
-  &-body {
-    padding: 1rem 2rem;
+  &.dark {
+    background: $dark;
+    color: $light;
+    box-shadow: 4px 10px 3px rgba(0,0,0,0.2);
+    border: 1px solid darken($dark, 5);
   }
 }

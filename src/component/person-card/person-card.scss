@@ -1,0 +1,66 @@
+@import "../../styles/abstract/variables";
+
+.person-card {
+  text-align: center;
+  padding: .5rem;
+
+  h1 {
+    @include media-breakpoint-up(md) {
+      font-size: 5rem;
+    }
+
+    @at-root .dark#{&} {
+      @include media-breakpoint-up(lg) {
+        text-shadow: 8px 6px 2px rgba(0,0,0,0.3);
+      }
+    }
+
+  }
+
+  .description-content {
+    margin: auto;
+    @include media-breakpoint-up(md) {
+      font-size: 1.8rem;
+    }
+    p {
+      margin: 0 auto;
+
+      @at-root .dark#{&} {
+        text-shadow: 3px 2px 2px rgba(0,0,0,0.5);
+      }
+    }
+    .lang-list {
+      margin: 5rem 0;
+      ul {
+        padding-left: 0;
+        list-style-type: none;
+        li {
+          font-size: 3rem;
+          padding: 0 2rem;
+          display: inline;
+          vertical-align: middle;
+          a {
+            text-decoration: none;
+
+            @at-root .light#{&} {
+              color: $dark;
+            }
+
+            @at-root .dark#{&} {
+              color: $light;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.dark {
+    text-shadow: 4px 2px 4px rgba(0,0,0,0.3);
+    color: $white;
+  }
+
+  &.light {
+    color: $dark;
+  }
+}

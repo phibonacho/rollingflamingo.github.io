@@ -1,0 +1,57 @@
+@import "../../styles/abstract/variables";
+
+@mixin hero-background($url, $gradient-color) {
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0) 40%, $gradient-color 90%, $gradient-color 90%),
+  url($url) center no-repeat;
+  background-size: cover;
+}
+
+@mixin hero-bg-themed($theme) {
+  @include hero-background("../../media/images/hero_bg_sm.webp", $theme);
+
+  @include media-breakpoint-up(md) {
+    height: 100vh;
+    @include hero-background("../../media/images/hero_bg_md.webp", $theme);
+  }
+
+  @include media-breakpoint-up(lg) {
+    @include hero-background("../../media/images/hero_bg_lg.webp", $theme);
+  }
+}
+
+.hero-banner {
+  width: 100%;
+  min-height: 40rem;
+  box-sizing: border-box;
+  display: flex;
+
+  // Responsive background image section
+
+  // background image section end
+
+  .right-container, .left-container {
+    flex: 1;
+    min-width: 50%;
+    margin: auto;
+  }
+
+  .left-container {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
+  }
+
+  .right-container {
+
+  }
+
+  &.light {
+    @include hero-bg-themed(transparent);
+  }
+
+  &.dark {
+    @include hero-bg-themed($dark)
+  }
+}
