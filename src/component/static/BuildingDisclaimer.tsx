@@ -9,7 +9,7 @@ export default class BuildingDisclaimer extends React.Component<any, any> {
   public render() {
     return (<Disclaimer title={'Page under construction!'}>
       <p>This should be a personal page, I'm building it in my free time so it will take a while, here's what I've accomplished so far:</p>
-      <StepList steps={
+      <StepList scrollable={true} steps={
         [
           'Github repository setup',
           'React project setup, this had to been done twice, since the first time I forgot to set the language to typescript... My bad.',

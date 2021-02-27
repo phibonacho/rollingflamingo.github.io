@@ -8,7 +8,7 @@ export default class StepList extends React.Component<IMilestoneProps, IMileston
 
   public render() {
     return (
-      <div className={`milestone ${this.context.theme}`}>
+      <div className={`milestone${this.props.scrollable? ' scrollable ' : ' '}${this.context.theme}`}>
         <ul>
           {this.props.steps.map((step, i) => (
             <li key={i}>{step}</li>

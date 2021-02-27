@@ -3,10 +3,35 @@
 .milestone {
   margin: auto;
 
+  &.scrollable {
+    max-height: 500px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar{
+      background-color: transparent;
+      border-radius: 1rem;
+      width: .8rem;
+      &-button       { /* 2 */ }
+      &-track        { /* 3 */ }
+      &-piece  { /* 4 */ }
+      &-corner       { /* 6 */ }
+      &-resizer                { /* 7 */ }
+      &-thumb:window-inactive,
+      &-thumb {
+        border-radius: 1rem;
+        background: $gray-500;
+
+      }
+    }
+  }
+
   ul {
     list-style-type: none;
     counter-reset: step;
     cursor: pointer;
+    @at-root.scrollable#{&} {
+      margin-right: .5rem;
+    }
 
     @include media-breakpoint-down(md) {
       padding-inline-start: unset;
