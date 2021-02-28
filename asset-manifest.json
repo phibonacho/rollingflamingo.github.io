@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.527ce413.chunk.css",
-    "main.js": "/static/js/main.d93c428d.chunk.js",
-    "main.js.map": "/static/js/main.d93c428d.chunk.js.map",
+    "main.css": "/static/css/main.d2d8657c.chunk.css",
+    "main.js": "/static/js/main.7b9a5476.chunk.js",
+    "main.js.map": "/static/js/main.7b9a5476.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.527dcb6c.js",
     "runtime-main.js.map": "/static/js/runtime-main.527dcb6c.js.map",
     "static/js/2.0fd08495.chunk.js": "/static/js/2.0fd08495.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.c87a4f13.chunk.js": "/static/js/3.c87a4f13.chunk.js",
     "static/js/3.c87a4f13.chunk.js.map": "/static/js/3.c87a4f13.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.527ce413.chunk.css.map": "/static/css/main.527ce413.chunk.css.map",
+    "static/css/main.d2d8657c.chunk.css.map": "/static/css/main.d2d8657c.chunk.css.map",
     "static/js/2.0fd08495.chunk.js.LICENSE.txt": "/static/js/2.0fd08495.chunk.js.LICENSE.txt",
     "static/media/hero-banner.scss": "/static/media/bg_trianglify_light_sm.4308cf2c.png"
   },
   "entrypoints": [
     "static/js/runtime-main.527dcb6c.js",
     "static/js/2.0fd08495.chunk.js",
-    "static/css/main.527ce413.chunk.css",
-    "static/js/main.d93c428d.chunk.js"
+    "static/css/main.d2d8657c.chunk.css",
+    "static/js/main.7b9a5476.chunk.js"
   ]
 }
