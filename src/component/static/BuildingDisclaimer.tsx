@@ -18,7 +18,9 @@ export default class BuildingDisclaimer extends React.Component<any, any> {
           'Added Responsive layout.',
           'Enhanced Hero Banner background optimization (kind of).',
           'Added theming (light and dark).',
-          'Added theme switcher and Navbar (a very hideous one).'
+          'Added theme switcher and Navbar (a very hideous one).',
+          'Added a more good-looking theme switcher.',
+          'Added two different background to match current theme.'
         ]
       }
       />
