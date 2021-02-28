@@ -1,0 +1,13 @@
+@import "../../../styles/abstract/variables";
+
+.toggle {
+  label {
+    @at-root.light#{&} {
+      color: $dark;
+    }
+
+    @at-root.dark#{&} {
+      color: $light;
+    }
+  }
+}

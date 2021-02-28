@@ -18,11 +18,12 @@ export default class Navbar extends React.Component<INavbarProps, INavbarState> 
 
 
   public componentDidMount() {
-    window.addEventListener('scroll', () => {
-      this.setState({
-        transform: window.pageYOffset > (this.selector.current?.getBoundingClientRect().bottom || 100)
-      });
-    }, false);
+    if(this.props.opacify)
+      window.addEventListener('scroll', () => {
+        this.setState({
+          transform: window.pageYOffset > (this.selector.current?.getBoundingClientRect().bottom || 100)
+        });
+      }, false);
   }
 
   public render() {

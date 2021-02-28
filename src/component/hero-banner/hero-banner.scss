@@ -6,16 +6,16 @@
   background-size: cover;
 }
 
-@mixin hero-bg-themed($theme) {
-  @include hero-background("../../media/images/hero_bg_sm.webp", $theme);
+@mixin hero-bg-themed($theme, $bg) {
+  @include hero-background("../../media/images/bg_trianglify_#{$bg}_sm.png", $theme);
 
   @include media-breakpoint-up(md) {
     height: 100vh;
-    @include hero-background("../../media/images/hero_bg_md.webp", $theme);
+    @include hero-background("../../media/images/bg_trianglify_#{$bg}_md.png", $theme);
   }
 
   @include media-breakpoint-up(lg) {
-    @include hero-background("../../media/images/hero_bg_lg.webp", $theme);
+    @include hero-background("../../media/images/bg_trianglify_#{$bg}_lg.png", $theme);
   }
 }
 
@@ -48,10 +48,10 @@
   }
 
   &.light {
-    @include hero-bg-themed(transparent);
+    @include hero-bg-themed($light, 'light');
   }
 
   &.dark {
-    @include hero-bg-themed($dark)
+    @include hero-bg-themed($dark, 'dark')
   }
 }

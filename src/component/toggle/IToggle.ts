@@ -3,4 +3,6 @@ export default interface IToggleProps {
   onClick?: () => void;
 }
 
-export interface IToggleState {}
+export interface IToggleState {
+  checked: boolean;
+}

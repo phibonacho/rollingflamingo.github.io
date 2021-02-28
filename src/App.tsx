@@ -6,8 +6,8 @@ import "./component/fontawesome/fontawesome";
 import BuildingDisclaimer from "./component/static/BuildingDisclaimer";
 import MyCard from "./component/static/MyCard";
 import ThemeContext from "./component/theme/ThemeContext";
-import Toggle from "./component/toggle/Toggle";
 import Navbar from "./component/navbar/Navbar";
+import ThemeToggle from "./component/toggle/src/ThemeToggle";
 
 interface IAppProps {
 
@@ -45,14 +45,14 @@ export default class App extends React.Component<IAppProps, IAppState>{
           }}>
             <Navbar
               rightContent={
-                <Toggle id={`theme-switch`} onClick={this.toggleTheme}/>
+                <ThemeToggle id={`theme-switch`} onClick={this.toggleTheme}/>
               }
             />
             <HeroBanner
               leftContent={<BuildingDisclaimer/>}
               rightContent={<MyCard/>}
             />
-            <div className={'temp-disclaimer'}>
+            <div className={`temp-disclaimer ${this.state.theme}`}>
               <BuildingDisclaimer/>
             </div>
           </ThemeContext.Provider>
