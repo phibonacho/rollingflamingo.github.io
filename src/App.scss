@@ -1,12 +1,13 @@
 @import "./styles/abstract/variables";
-@import "./styles/typography/poppins";
+@import "./styles/abstract/typography";
 
 * {
   font-family: 'Poppins', sans-serif;
+  font-style: normal;
 }
 
 body {
-  background: $dark;
+  background: url("./media/images/particles_bg.png") repeat;
 }
 
 .temp-disclaimer {
@@ -23,6 +24,27 @@ body {
 
   @include media-breakpoint-down(lg) {
     display: block;
+  }
+}
+
+.cloud-image {
+  position: relative;
+  width: 100%;
+  height: 550px;
+
+  #triangle {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #me {
+    position: absolute;
+    height: 550px;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 

@@ -5,11 +5,9 @@ export default class MyCard extends React.Component<any, any> {
   public render() {
     return (
       <PersonCard
-        title={'Andrea Storace'}
+        title={'It\'s-a me, Andreo!'}
         descriptions={[
-          'Computer Science Bachelor Graduate',
-          'Software Engineering Student',
-          'Junior Web Developer'
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod sapien risus, a maximus justo malesuada id. Aenean congue facilisis massa, et laoreet nisi fermentum vitae. Donec vitae posuere erat. In congue lacus a purus congue feugiat. Aenean in mauris quis ipsum eleifend feugiat nec ac nibh.\n',
         ]}
         featuredLinks={[
           {

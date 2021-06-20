@@ -1,0 +1,9 @@
+@import "../../styles/abstract/variables";
+
+.projects-archive {
+  display: flex;
+  flex-flow: row wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  box-sizing: border-box;
+}

@@ -1,27 +1,9 @@
 @import "../../styles/abstract/variables";
 
-@mixin hero-background($url, $transparent-color, $opaque-color) {
-  background: linear-gradient(to bottom, $transparent-color, $transparent-color 40%, $opaque-color 90%, $opaque-color 90%),
-  url($url) center no-repeat;
-  background-size: cover;
-}
-
-@mixin hero-bg-themed($transparent-color, $theme, $bg) {
-  @include hero-background("../../media/images/bg_trianglify_#{$bg}_sm.png", $transparent-color, $theme);
-
-  @include media-breakpoint-up(md) {
-    height: 100vh;
-    @include hero-background("../../media/images/bg_trianglify_#{$bg}_md.png", $transparent-color, $theme);
-  }
-
-  @include media-breakpoint-up(lg) {
-    @include hero-background("../../media/images/bg_trianglify_#{$bg}_lg.png", $transparent-color, $theme);
-  }
-}
-
 .hero-banner {
-  width: 100%;
-  min-height: 40rem;
+  margin: auto;
+  max-width: 1440px;
+  min-height: 100vh;
   box-sizing: border-box;
   display: flex;
 
@@ -31,8 +13,8 @@
 
   .right-container, .left-container {
     flex: 1;
-    min-width: 50%;
     margin: auto;
+    padding: 81px;
   }
 
   .left-container {
@@ -45,13 +27,5 @@
 
   .right-container {
 
-  }
-
-  &.light {
-    @include hero-bg-themed(rgba(255, 255, 255, 0), $light, 'light');
-  }
-
-  &.dark {
-    @include hero-bg-themed(rgba(0, 0, 0, 0), $dark, 'dark')
   }
 }

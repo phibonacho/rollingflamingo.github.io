@@ -1,7 +1,11 @@
 @import "functions";
 @import "mixins";
 
-$blue: #20A4F3;
-$sky: #406CA2;
+$primary: #ABCAF0;
+$secondary: #F0C4AB;
+$dark: #333333;
+$semi-dark: #4F4F4F;
+$text-muted: #828282;
+$light: #E0E0E0;
 
 @import "~bootstrap/scss/variables";

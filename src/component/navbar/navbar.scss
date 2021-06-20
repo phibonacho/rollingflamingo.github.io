@@ -46,3 +46,23 @@ $header-height: 5rem;
   }
 
 }
+
+.nav-menu {
+  display: flex;
+  flex-direction: row;
+  padding-inline-start: 0;
+  justify-content: flex-end;
+  &-item {
+    flex: 0 0 20%;
+    list-style-type: none;
+    text-align: center;
+
+    a {
+      color: $semi-dark;
+      font-size: 18px;
+      line-height: 27px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}
