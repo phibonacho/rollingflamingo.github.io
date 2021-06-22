@@ -20,9 +20,9 @@
   .left-container {
     display: none;
 
-    @include media-breakpoint-up(lg) {
+/*    @include media-breakpoint-up(lg) {
       display: block;
-    }
+    }*/
   }
 
   .right-container {

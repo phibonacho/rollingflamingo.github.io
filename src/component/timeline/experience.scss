@@ -1,0 +1,21 @@
+@import "../../styles/abstract/variables";
+
+.experience {
+  width: 465px;
+  height: 300px;
+
+  &.certificate {
+    width: 315px;
+    height: 135px;
+  }
+
+  .info-wrapper {
+    max-width: 315px;
+    align-self: center;
+    z-index: 2;
+
+    @at-root.certificate#{&} {
+      max-width: 240px;
+    }
+  }
+}

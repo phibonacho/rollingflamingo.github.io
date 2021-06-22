@@ -1,0 +1,11 @@
+@import "../../styles/abstract/variables";
+
+.footer__container {
+  background: $primary;
+  width: 100%;
+  .footer__content {
+    padding: 65px;
+    max-width: 1440px;
+    margin: auto;
+  }
+}
