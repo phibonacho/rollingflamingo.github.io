@@ -5,17 +5,24 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     flex: {
-      '2-50': '2 0 50%',
-      '1-33': '1 0 33%',
-      '1-40': '1 0 40%',
-      '1-60': '1 0 60%'
+      '1-33': '0 1 33%',
+      '2-50': '0 1 50%',
+      '1-40': '0 1 40%',
+      '1-60': '0 1 60%',
+      'full': '1 0 100%',
+      ...defaultTheme.flex
     },
     flexGrow: {
+      '2': 2,
       '3': 3
     },
     screens: {
-      '2xl': '1440px',
-      ...defaultTheme.screens
+      xs: '0',
+      sm: '576px',
+      md: '768px',
+      lg: '992px',
+      xl: '1250px',
+      xxl: '1400px'
     },
     extend: {
       colors: {

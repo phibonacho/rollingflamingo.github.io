@@ -12,7 +12,7 @@ import Sample from "./media/images/bg_trianglify_dark_sm.png";
 import NavMenu from "./component/navbar/NavMenu";
 import ProjectArchive from "./component/projects/ProjectArchive";
 import Experience from "./component/timeline/Experience";
-import CloudTriangleLg from "./component/graphics/CloudTriangleLg";
+import SvgCloudTriangleLg from "./component/graphics/CloudTriangleLg";
 import TextLogo from "./component/graphics/TextLogo";
 import Footer from "./component/footer/Footer";
 
@@ -75,7 +75,7 @@ export default class App extends React.Component<IAppProps, IAppState>{
         <HeroBanner
           leftContent={<MyCard/>}
           rightContent={<div className={'cloud-image'}>
-            <CloudTriangleLg id={'triangle'}/>
+            <SvgCloudTriangleLg id={'triangle'}/>
             <img id='me' src={Me} alt="me in pain"/>
           </div>}
         />
@@ -84,15 +84,16 @@ export default class App extends React.Component<IAppProps, IAppState>{
         </Section>
         <Section title={"About"}>
           <div className="flex flex-row flex-wrap">
-            <div className='flex-shrink-0 lg:order-3 md:flex-auto flex-33'>
+            <div id="first-exp" className='flex xl:order-3 xl:flex-1-33 flex-full justify-center xl:justify-start'>
               <Experience
+                className="md:mr-64 xl:mr-0"
                 name="Backend developer"
                 period="January 2019 - July 2019"
                 faculty="WikiRE"
                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non nisl euismod, vulputate urna sit amet, pellentesque eros"
               />
             </div>
-            <div className='lg:order-1 lg:flex lg:justify-end flex-2-50'>
+            <div id="second-exp" className='flex xl:order-1 md:order-3 xl:justify-end justify-center xl:flex-2-50 md:flex-1-60 flex-full'>
               <Experience
                 variant={2}
                 name="Fullstack developer"
@@ -101,7 +102,7 @@ export default class App extends React.Component<IAppProps, IAppState>{
                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non nisl euismod, vulputate urna sit amet, pellentesque eros"
               />
             </div>
-            <div className='lg:order-4 flex-auto flex-33'>
+            <div id="third-exp" className='flex xl:order-4 md:order-2 flex-full xl:flex-auto md:flex-1-40 md:justify-end md:self-center justify-center'>
               <Experience
                 name="Computer Science Bachelor Degree"
                 period="30 March 2020"
@@ -110,8 +111,9 @@ export default class App extends React.Component<IAppProps, IAppState>{
                 certificate
               />
             </div>
-            <div className='lg:order-2 lg:flex lg:justify-start flex-2-50'>
+            <div id="fourth-exp" className='flex justify-center xl:order-2 md:order-4 xl:justify-start xl:flex-2-50 flex-full'>
               <Experience
+                className="md:ml-32 xl:ml-0"
                 name="Frontend developer"
                 period="December 2020 - Now"
                 faculty="Reply Cluster"
@@ -119,8 +121,9 @@ export default class App extends React.Component<IAppProps, IAppState>{
                 variant={3}
               />
             </div>
-            <div className='order-5 flex-33'>
+            <div id="last-exp" className='flex order-5 xl:flex-1-33 flex-full justify-center'>
               <Experience
+                className="md:mr-72 xl:mr-0"
                 name="Full time clown"
                 period="Now"
                 faculty="Self employee"
