@@ -32,6 +32,12 @@ module.exports = {
         obsidian: '#4F4F4F',
         muted: '#828282',
         light: '#E0E0E0'
+      },
+      lineClamp: {
+        7: '7',
+        8: '8',
+        9: '9',
+        10: '10',
       }
     }
   },

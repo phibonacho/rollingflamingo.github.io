@@ -1,21 +1,26 @@
 @import "../../styles/abstract/variables";
+@import "~tailwindcss/screens.css";
 
 .experience {
-  width: 465px;
+
+  @screen sm  {
+    width: 435px;
+  }
+
   height: 300px;
 
   &.certificate {
-    width: 315px;
+    width: 260px;
     height: 135px;
   }
 
   .info-wrapper {
-    max-width: 315px;
+    max-width: 300px;
     align-self: center;
     z-index: 2;
 
     @at-root.certificate#{&} {
-      max-width: 240px;
+      max-width: 200px;
     }
   }
 }

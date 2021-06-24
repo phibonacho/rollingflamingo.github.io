@@ -1,23 +1,22 @@
 @import "../../styles/abstract/variables";
 
+@import "~tailwindcss/screens.css";
+
 .project-card {
-  flex: 1 0 33%;
   overflow: hidden;
   border: solid 1px $light;
   border-radius: 5px;
   display: flex;
   flex-flow: column;
-  max-width: 32%;
-  margin: .5rem auto;
 
   @at-root.main#{&} {
-    height: 550px;
-    position: relative;
-    display: block;
-    overflow: unset;
-    border: none;
-    flex: 10 0 100%;
-    max-width: 100%;
+    @screen md{
+      height: 550px;
+      position: relative;
+      display: block;
+      overflow: unset;
+      border: none;
+    }
   }
 
   .project-image {
@@ -26,81 +25,36 @@
     object-fit: cover;
 
     @at-root.main#{&} {
-      width: calc(100% - 20px);
-      height: calc(100% - 20px);
-      border-radius: 5px;
+      @screen md {
+        width: calc(100% - 20px);
+        height: calc(100% - 20px);
+        border-radius: 5px;
+      }
     }
   }
+
   .project-info {
     @at-root.main#{&} {
-      position: absolute;
-      width: 383px;
-      bottom: 0;
-      right: 0;
-      border: solid 1px $light;
-
+      @screen md {
+        position: absolute;
+        width: 383px;
+        bottom: 0;
+        right: 0;
+        border: solid 1px $light;
+      }
     }
+
     margin-top: -10px;
     padding: 18px;
     border-radius: 5px;
     background: $white;
     display: flex;
     flex-flow: column;
-    .project-detail-wrapper {
-      flex: 1 0 100%;
-      .project-title {
-        text-transform: uppercase;
-        font-weight: bold;
-        color: $semi-dark;
-        font-size: 27px;
-        text-align: center;
-        width: 100%;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
-        margin-block-start: 0;
-        margin-block-end: 7px;
-      }
-
-      .project-description {
-        width: 100%;
-        margin-bottom: 1rem;
-        font-size: 18px;
-        color: $dark;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 8;
-        overflow: hidden;
-
-      }
-
-      .tags-list {
-        display: flex;
-        flex-direction: row;
-        padding-inline-start: 0;
-
-        .tag-item {
-          list-style-type: none;
-          color: $text-muted;
-          font-weight: bold;
-          font-size: 12px;
-        }
-      }
-    }
-
-    .project-link-wrapper {
-      text-align: center;
-      position: relative;
-
-      .project-link {
-        padding: 14px;
-        background: url("../../media/graphics/signature-triangle.svg") no-repeat;
-        background-size: contain;
-        text-transform: uppercase;
-        color: $semi-dark;
-        font-weight: 600;
-        text-decoration: none;
-      }
-    }
   }
+}
+
+.project-link {
+  background: url("../../media/graphics/signature-triangle.svg") no-repeat;
+  background-size: contain;
+  text-decoration: none;
 }

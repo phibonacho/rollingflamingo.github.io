@@ -37,7 +37,7 @@ export default class Experience extends React.Component<IExperienceProps, any> {
 
   public render() {
     const { certificate } = this.props;
-    return <div className={`flex flex-row justify-end overflow-hidden relative experience ${certificate? 'certificate' : ''} ${this.props.className || ''}`}>
+    return <div className={`flex flex-row justify-end relative experience ${certificate? 'certificate' : ''} ${this.props.className || ''}`}>
       {
         this.renderDecoration()
       }
@@ -50,7 +50,7 @@ export default class Experience extends React.Component<IExperienceProps, any> {
         }>{this.props.period}</span>
         <h4 className={[
           (certificate? "text-xl" : "text-3xl"),
-          "text-obsidian",
+          "text-dark",
           "font-semibold",
           "line-clamp-2"].join(" ")
         }>{this.props.name}</h4>
