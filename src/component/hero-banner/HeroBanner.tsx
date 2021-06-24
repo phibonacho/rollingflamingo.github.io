@@ -14,7 +14,7 @@ export default class HeroBanner extends React.Component<IHeroBannerProps, IHeroB
       <div className="col-span-7 md:col-span-6 p-10 lg:p-20 self-center mx-auto">
         <div className="flex flex-col justify-between h-96 sm:h-full xl:h-96">
           <div className="title-wrapper">
-            <CloudTriangleMd className="xl:hidden"/>
+            <CloudTriangleMd className="fill-current text-blue xl:hidden"/>
             <h1 className="text-4xl lg:text-5xl text-obsidian font-bold">It's-a me, Andreo!</h1>
           </div>
           <p className="text-base text-dark xl:line-clamp-5 mx-10 hidden">
@@ -45,7 +45,7 @@ export default class HeroBanner extends React.Component<IHeroBannerProps, IHeroB
           </ul>
         </div>
         <div className="hidden xl:block relative cloud-image">
-          <SvgCloudTriangleLg id={'triangle'}/>
+          <SvgCloudTriangleLg className="fill-current text-blue" id={'triangle'}/>
           <img id='me' src={Me} alt="me in pain"/>
         </div>
       </div>

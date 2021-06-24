@@ -21,17 +21,17 @@ export default class Experience extends React.Component<IExperienceProps, any> {
 
   private renderDecoration() {
     if(this.props.certificate)
-      return <Variant5 style={{ position: "absolute", top: 0, left: 0} }/>;
+      return <Variant5 className="fill-current text-pink" style={{ position: "absolute", top: 0, left: 0} }/>;
 
     switch (this.props.variant) {
       case 2:
-        return <Variant2 style={{ position: "absolute", top: 0, left: 50} }/>;
+        return <Variant2 className="fill-current text-blue" style={{ position: "absolute", top: 0, left: 50} }/>;
       case 3:
-        return <Variant3 style={{ position: "absolute", top: 0, left: 30} }/>;
+        return <Variant3 className="fill-current text-blue" style={{ position: "absolute", top: 0, left: 30} }/>;
       case 4:
-        return <Variant4 style={{ position: "absolute", top: 50, left: 80} }/>;
+        return <Variant4 className="fill-current text-blue" style={{ position: "absolute", top: 50, left: 80} }/>;
       default:
-        return <Variant1 style={{ position: "absolute", top: 30, left: 60} }/>;
+        return <Variant1 className="fill-current text-blue" style={{ position: "absolute", top: 30, left: 60} }/>;
     }
   }
 

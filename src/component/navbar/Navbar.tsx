@@ -1,10 +1,8 @@
-import INavbarProps , { INavbarState } from "./INavbar";
 import * as React from "react";
+import INavbarProps , { INavbarState } from "./INavbar";
 import './navbar.scss';
-import ThemeContext from "../theme/ThemeContext";
 
 export default class Navbar extends React.Component<INavbarProps, INavbarState> {
-  static contextType = ThemeContext;
   private readonly selector: React.RefObject<HTMLHeadElement>;
 
   public constructor(props: INavbarProps) {
@@ -13,22 +11,32 @@ export default class Navbar extends React.Component<INavbarProps, INavbarState> 
     this.state = {
       transform: false
     }
+
+    this.scrollHandler = this.scrollHandler.bind(this);
   }
 
+  private scrollHandler() {
+    if(window.pageYOffset > 100)
+      this.setState({
+        transform: true
+      });
+    else
+      this.setState({
+        transform: false
+      });
+  }
 
+  public async componentDidMount() {
+      window.addEventListener('scroll', this.scrollHandler, false);
+  }
 
-  public componentDidMount() {
-    if(this.props.opacify)
-      window.addEventListener('scroll', () => {
-        this.setState({
-          transform: window.pageYOffset > (this.selector.current?.getBoundingClientRect().bottom || 100)
-        });
-      }, false);
+  public async componentWillUnmount() {
+    window.removeEventListener('scroll', this.scrollHandler, false);
   }
 
   public render() {
     return (
-      <header ref={this.selector} className={`custom-navbar ${this.context.theme} ${this.state.transform ? 'opaque' : ''}`}>
+      <header ref={this.selector} className={`custom-navbar ${this.state.transform? 'bg-white' : 'bg-transparent'}`}>
         <div className={'main-container'}>
           <div className={'left-container'}>
             { this.props.leftContent }
