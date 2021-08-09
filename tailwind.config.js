@@ -2,7 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     flex: {
       '1-33': '0 1 33%',
@@ -29,6 +29,8 @@ module.exports = {
         blue: '#ABCAF0',
         pink: '#F0C4AB',
         dark: '#333333',
+        fuchsia: '#f0abdf',
+        green: '#dff0ab',
         obsidian: '#4F4F4F',
         muted: '#828282',
         light: '#E0E0E0'

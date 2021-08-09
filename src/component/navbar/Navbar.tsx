@@ -9,7 +9,7 @@ export default class Navbar extends React.Component<INavbarProps, INavbarState> 
     super(props);
     this.selector = React.createRef<HTMLHeadElement>();
     this.state = {
-      transform: false
+      transform: window.pageYOffset > 100
     }
 
     this.scrollHandler = this.scrollHandler.bind(this);

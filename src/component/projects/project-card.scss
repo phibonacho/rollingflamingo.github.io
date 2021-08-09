@@ -41,6 +41,7 @@
         bottom: 0;
         right: 0;
         border: solid 1px $light;
+        height: auto;
       }
     }
 
@@ -50,6 +51,7 @@
     background: $white;
     display: flex;
     flex-flow: column;
+    height: 310px;
   }
 }
 

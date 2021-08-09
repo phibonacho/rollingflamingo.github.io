@@ -13,6 +13,9 @@
 
 body {
   background: url("./media/images/particles_bg.png") repeat;
+  .dark & {
+    background: url("./media/images/particles_dark.png") repeat;
+  }
 }
 
 .title-wrapper {
