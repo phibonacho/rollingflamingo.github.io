@@ -11,7 +11,7 @@ let description: string = "Always looking for new technologies and frameworks to
 
 export default class HeroBanner extends React.Component<IHeroBannerProps, IHeroBannerState> {
   public render() {
-    return <div className="m-auto max-w-screen-xxl box-border h-screen grid md:grid-cols-12 grid-cols-7">
+    return <div className="m-auto max-w-screen-xxl box-border h-screen grid md:grid-cols-12 grid-cols-7" role='banner'>
       <div className="col-span-7 md:col-span-6 p-10 lg:p-20 self-center mx-auto">
         <div className="flex flex-col justify-between h-96 sm:h-full xl:h-96">
           <div className="title-wrapper">
@@ -25,10 +25,10 @@ export default class HeroBanner extends React.Component<IHeroBannerProps, IHeroB
           </p>
           <ul className="flex xl:flex list-none justify-around pl-0 text-5xl mx-10 md:hidden">
             <li>
-              <a href="https://github.com/rollingflamingo"><FontAwesomeIcon icon={["fab", "github"]} className="text-dark dark:text-white"/></a>
+              <a href="https://github.com/rollingflamingo" aria-label="Github"><FontAwesomeIcon icon={["fab", "github"]} className="text-dark dark:text-white"/></a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/andrea-storace-73b9b9103/"><FontAwesomeIcon icon={["fab", "linkedin"]} className="text-dark dark:text-white"/></a>
+              <a href="https://www.linkedin.com/in/andrea-storace-73b9b9103/" aria-label="Linkedin"><FontAwesomeIcon icon={["fab", "linkedin"]} className="text-dark dark:text-white"/></a>
             </li>
           </ul>
         </div>
@@ -50,7 +50,7 @@ export default class HeroBanner extends React.Component<IHeroBannerProps, IHeroB
           </ul>
         </div>
         <div className="hidden xl:block relative cloud-image">
-          <SvgCloudTriangleLg className="fill-current text-blue" id={'triangle'}/>
+          <SvgCloudTriangleLg className="fill-current text-blue dark:text-fuchsia" id={'triangle'}/>
           <img id='me' src={Me} alt="me in pain"/>
         </div>
       </div>
