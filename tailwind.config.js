@@ -1,5 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+// 22162b-451f55-724e91-e54f6d-f8c630
+
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: 'class', // or 'media' or 'class'
@@ -32,7 +34,7 @@ module.exports = {
         fuchsia: '#f0abdf',
         green: '#dff0ab',
         obsidian: '#4F4F4F',
-        muted: '#828282',
+        muted: '#5C5C5C',
         light: '#E0E0E0'
       },
       lineClamp: {
