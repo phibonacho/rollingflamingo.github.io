@@ -4,10 +4,11 @@ import './App.scss';
 
 import HeroBanner from "./component/hero-banner/HeroBanner";
 import "./component/fontawesome/fontawesome";
-import Navbar from "./component/navbar/Navbar";
+import Header from "./component/header/Header";
 import Section from "./component/section/Section";
 import Sample from "./media/images/bg_trianglify_dark_sm.png";
-import NavMenu from "./component/navbar/NavMenu";
+import Herschel from "./media/images/herschel.png";
+import NavMenu from "./component/header/NavMenu";
 import ProjectArchive from "./component/projects/ProjectArchive";
 import Experience from "./component/timeline/Experience";
 import TextLogo from "./component/graphics/TextLogo";
@@ -25,7 +26,7 @@ let projects = [
     title: 'Herschel',
     description: 'Herschel has been the first web project I worked on, it consisted in a fake web portal to book space travels to other planets. ',
     tags: ['#website', "#webpack", "#jquery", "#scss", "#bootstrap"],
-    image: Sample,
+    image: Herschel,
     link: '#'
   },
   {
@@ -55,27 +56,27 @@ export default class App extends React.Component<IAppProps, IAppState>{
 
   public render() {
     return (
-      <div className="App">
-        <Navbar
+      <main className="App">
+        <Header
           leftContent={<TextLogo onClick={() => window.scroll({ top: 0, left: 0, behavior: "smooth"})}/>}
           rightContent={<NavMenu entries={[
             {
               title: "Projects",
-              link: "#Projects",
+              link: "#projects",
               scroll: true
             },
             {
               title: "About",
-              link: "#About",
+              link: "#about",
               scroll: true
             }
           ]}/>}
         />
         <HeroBanner/>
-        <Section id={"Projects"} title={"Projects"}>
+        <Section id={"projects"} title={"Projects"}>
           <ProjectArchive projects={projects}/>
         </Section>
-        <Section id={"About"} title={"About me"}>
+        <Section id={"about"} title={"About me"}>
           <div className="flex flex-row flex-wrap">
             <div id="first-exp" className='flex xl:order-3 xl:flex-1-33 flex-full justify-center xl:justify-start'>
               <Experience
@@ -108,7 +109,7 @@ export default class App extends React.Component<IAppProps, IAppState>{
               <Experience
                 className="md:ml-32 xl:ml-0"
                 name="Frontend developer"
-                period="December 2020 - Now"
+                period="December 2020 - August 2021"
                 faculty="Reply Cluster"
                 description="In Reply cluster I consolidated my interest in frontend development, implementing more complex solution for intranets."
                 variant={3}
@@ -118,7 +119,7 @@ export default class App extends React.Component<IAppProps, IAppState>{
               <Experience
                 className="md:mr-72 xl:mr-0"
                 name="Frontend Developer"
-                period="Now"
+                period="September 2021 - Now"
                 faculty="Reply Bitmama"
                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non nisl euismod, vulputate urna sit amet, pellentesque eros"
                 variant={4}
@@ -126,7 +127,7 @@ export default class App extends React.Component<IAppProps, IAppState>{
             </div>
           </div>
         </Section>
-        <Section id={"self-description"} title=''>
+        <Section id={"about-me"} title='About me' srOnly>
           <div className='grid grid-cols-12 gap-4'>
             <div className='col-span-10 md:col-span-5 lg:col-span-4 xl:col-span-3 text-center md:text-right self-center'>
               <h3 className='font-bold text-5xl text-obsidian dark:text-light pb-4'>Keep<br/>on<br/>learning</h3>
@@ -137,7 +138,7 @@ export default class App extends React.Component<IAppProps, IAppState>{
           </div>
         </Section>
         <Footer/>
-      </div>
+      </main>
     );
   }
 }

@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./navbar.scss";
+import "./header.scss";
 
 export interface INavMenuProps {
   entries: {
@@ -16,6 +16,7 @@ export default class NavMenu extends React.Component<INavMenuProps, {}>{
     event.preventDefault();
     if(scroll) {
       let target = document.querySelector(link);
+      console.log('target', target, link);
       if (target) {
         window.scroll({
           top: (window.scrollY + target.getBoundingClientRect().y) - modifier,

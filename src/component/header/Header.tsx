@@ -1,8 +1,8 @@
 import * as React from "react";
-import INavbarProps , { INavbarState } from "./INavbar";
-import './navbar.scss';
+import INavbarProps , { INavbarState } from "./IHeader";
+import './header.scss';
 
-export default class Navbar extends React.Component<INavbarProps, INavbarState> {
+export default class Header extends React.Component<INavbarProps, INavbarState> {
   private readonly selector: React.RefObject<HTMLHeadElement>;
 
   public constructor(props: INavbarProps) {
