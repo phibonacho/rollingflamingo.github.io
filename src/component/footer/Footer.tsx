@@ -2,7 +2,7 @@ import * as React from "react";
 
 import "./footer.scss";
 import TextLogoWhite from "../graphics/TextLogoWhite";
-import NavMenu from "../navbar/NavMenu";
+import NavMenu from "../header/NavMenu";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export interface IFooterProps {
