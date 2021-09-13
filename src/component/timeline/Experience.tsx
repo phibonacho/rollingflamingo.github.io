@@ -21,17 +21,17 @@ export default class Experience extends React.Component<IExperienceProps, any> {
 
   private renderDecoration() {
     if(this.props.certificate)
-      return <Variant5 className="fill-current text-pink dark:text-green" style={{ position: "absolute", top: 0, left: 0} }/>;
+      return <Variant5 className="fill-current text-pink dark:text-obsidian" style={{ position: "absolute", top: 0, left: 0} }/>;
 
     switch (this.props.variant) {
       case 2:
         return <Variant2 className="fill-current text-blue dark:text-fuchsia" style={{ position: "absolute", top: 0, left: 50} }/>;
       case 3:
-        return <Variant3 className="fill-current text-blue dark:text-fuchsia" style={{ position: "absolute", top: 0, left: 30} }/>;
+        return <Variant3 className="fill-current text-blue dark:text-obsidian" style={{ position: "absolute", top: 0, left: 30} }/>;
       case 4:
-        return <Variant4 className="fill-current text-blue dark:text-fuchsia" style={{ position: "absolute", top: 50, left: 80} }/>;
+        return <Variant4 className="fill-current text-blue dark:text-obsidian" style={{ position: "absolute", top: 50, left: 80} }/>;
       default:
-        return <Variant1 className="fill-current text-blue dark:text-fuchsia" style={{ position: "absolute", top: 30, left: 60} }/>;
+        return <Variant1 className="fill-current text-blue dark:text-obsidian" style={{ position: "absolute", top: 30, left: 60} }/>;
     }
   }
 
@@ -41,19 +41,20 @@ export default class Experience extends React.Component<IExperienceProps, any> {
       {
         this.renderDecoration()
       }
-      <div className="info-wrapper">
+      <div className="info-wrapper text">
         <span className={[
           "text-base",
-          "text-obsidian dark:text-light",
+          "text-obsidian",
           (certificate? "font-regular" : "font-semibold"),
           "line-clamp-1"].join(" ")
         }>{this.props.period}</span>
-        <h4 className={[
+        <h3 className={[
           (certificate? "text-xl" : "text-3xl"),
-          "text-dark dark:text-white",
+          (certificate? "dark:text-lime" : "dark:text-obsidian"),
+          "text-dark",
           "font-semibold",
           "line-clamp-2"].join(" ")
-        }>{this.props.name}</h4>
+        }>{this.props.name}</h3>
         <p className="text-base text-dark dark:text-white line-clamp-4">
           <span className={[
             (certificate? "text-xs" : "text-base"),
