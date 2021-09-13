@@ -17,7 +17,7 @@ export default class ProjectCard extends React.Component<IProjectCardProps, {}> 
       <img src={this.props.image} className='project-image' alt="project thumbnail"/>
       <div className='project-info dark:bg-obsidian'>
         <div className='flex-full flex flex-col mb-2'>
-          <h4 className='uppercase font-bold text-obsidian dark:text-light dark:text-white text-2xl text-center w-full line-clamp-1'>{this.props.title}</h4>
+          <h3 className='uppercase font-bold text-obsidian dark:text-light dark:text-white text-2xl text-center w-full line-clamp-1'>{this.props.title}</h3>
           <div className="flex-full flex">
             <p className='self-center text-base text-dark dark:text-white md:line-clamp-8 line-clamp-6'>
               {this.props.description}
