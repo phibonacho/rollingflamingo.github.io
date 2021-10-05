@@ -1,23 +1,32 @@
 {
   "files": {
-    "main.css": "/static/css/main.d2d8657c.chunk.css",
-    "main.js": "/static/js/main.7b9a5476.chunk.js",
-    "main.js.map": "/static/js/main.7b9a5476.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.527dcb6c.js",
-    "runtime-main.js.map": "/static/js/runtime-main.527dcb6c.js.map",
-    "static/js/2.0fd08495.chunk.js": "/static/js/2.0fd08495.chunk.js",
-    "static/js/2.0fd08495.chunk.js.map": "/static/js/2.0fd08495.chunk.js.map",
-    "static/js/3.c87a4f13.chunk.js": "/static/js/3.c87a4f13.chunk.js",
-    "static/js/3.c87a4f13.chunk.js.map": "/static/js/3.c87a4f13.chunk.js.map",
+    "main.css": "/static/css/main.6c4541c5.chunk.css",
+    "main.js": "/static/js/main.982ea39f.chunk.js",
+    "main.js.map": "/static/js/main.982ea39f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ab5270eb.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ab5270eb.js.map",
+    "static/css/2.e0948ff9.chunk.css": "/static/css/2.e0948ff9.chunk.css",
+    "static/js/2.4bc1b05d.chunk.js": "/static/js/2.4bc1b05d.chunk.js",
+    "static/js/2.4bc1b05d.chunk.js.map": "/static/js/2.4bc1b05d.chunk.js.map",
+    "static/js/3.57cc4a5e.chunk.js": "/static/js/3.57cc4a5e.chunk.js",
+    "static/js/3.57cc4a5e.chunk.js.map": "/static/js/3.57cc4a5e.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.d2d8657c.chunk.css.map": "/static/css/main.d2d8657c.chunk.css.map",
-    "static/js/2.0fd08495.chunk.js.LICENSE.txt": "/static/js/2.0fd08495.chunk.js.LICENSE.txt",
-    "static/media/hero-banner.scss": "/static/media/bg_trianglify_light_sm.4308cf2c.png"
+    "static/css/2.e0948ff9.chunk.css.map": "/static/css/2.e0948ff9.chunk.css.map",
+    "static/css/main.6c4541c5.chunk.css.map": "/static/css/main.6c4541c5.chunk.css.map",
+    "static/js/2.4bc1b05d.chunk.js.LICENSE.txt": "/static/js/2.4bc1b05d.chunk.js.LICENSE.txt",
+    "static/media/cloud-me.74ff9e62.png": "/static/media/cloud-me.74ff9e62.png",
+    "static/media/coeus.08f9577a.png": "/static/media/coeus.08f9577a.png",
+    "static/media/herschel.7346f76d.png": "/static/media/herschel.7346f76d.png",
+    "static/media/App.scss": "/static/media/particles_dark.3288f12a.png",
+    "static/media/ponos.d1a093a9.png": "/static/media/ponos.d1a093a9.png",
+    "static/media/fwProject.scss": "/static/media/project-image.7f5456b1.svg",
+    "static/media/tiresia.7cb1ac95.png": "/static/media/tiresia.7cb1ac95.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.527dcb6c.js",
-    "static/js/2.0fd08495.chunk.js",
-    "static/css/main.d2d8657c.chunk.css",
-    "static/js/main.7b9a5476.chunk.js"
+    "static/js/runtime-main.ab5270eb.js",
+    "static/css/2.e0948ff9.chunk.css",
+    "static/js/2.4bc1b05d.chunk.js",
+    "static/css/main.6c4541c5.chunk.css",
+    "static/js/main.982ea39f.chunk.js"
   ]
 }
