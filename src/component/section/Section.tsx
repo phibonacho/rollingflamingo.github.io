@@ -7,12 +7,16 @@ export default class Section extends React.Component<ISectionProps, ISectionStat
 
   public render() {
     return <section id={this.props.id}
-                    className="max-w-screen-xxl mx-auto mt-12 mb-20 px-4 lg:px-8 overflow-hidden"
+                    className={[
+                        "section",
+                      ...(this.props.fullWidth ? ["w-screen"] : ["max-w-screen-xxl mx-auto px-4 lg:px-8"])
+                    ].join(" ")}
                     aria-labelledby={`${this.props.id}-title`}
                     role="article">
       <h2 className={[
-        "text-5xl font-semibold text-obsidian dark:text-light ml-20 my-10",
-        ...(this.props.srOnly ? ["hidden"] : [])
+        "text-5xl font-semibold text-obsidian dark:text-light my-10",
+        ...(this.props.srOnly ? ["hidden"] : []),
+        ...(this.props.fullWidth ? ["max-w-screen-xxl mx-auto pl-28"] : ["md:ml-20"])
       ].join(" ")} id={`${this.props.id}-title`}>{ this.props.title }</h2>
       { this.props.children }
     </section>;

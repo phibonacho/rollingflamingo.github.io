@@ -4,14 +4,16 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
 import { faDocker } from "@fortawesome/free-brands-svg-icons/faDocker";
 import {faAdjust} from "@fortawesome/free-solid-svg-icons/faAdjust";
 import {faHeart} from "@fortawesome/free-solid-svg-icons/faHeart";
+import {faExternalLinkSquareAlt} from "@fortawesome/free-solid-svg-icons/faExternalLinkSquareAlt";
 
 library.add(
-  // brand
-  faLinkedin,
-  faGithub,
-  faDocker,
+    // brand
+    faLinkedin,
+    faGithub,
+    faDocker,
 
-  // solid
-  faAdjust,
-  faHeart
+    // solid
+    faAdjust,
+    faHeart,
+    faExternalLinkSquareAlt
 );

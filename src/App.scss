@@ -6,6 +6,10 @@
 @import "~tailwindcss/utilities.css";
 @import "~tailwindcss/screens.css";
 @import "~tailwindcss/variants.css";
+
+html {
+}
+
 * {
   font-family: 'Poppins', sans-serif;
   font-style: normal;
@@ -16,6 +20,9 @@ body {
   .dark & {
     background: url("./media/images/particles_dark.png") repeat;
   }
+}
+
+.App {
 }
 
 .title-wrapper {

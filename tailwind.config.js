@@ -1,7 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
-// 22162b-451f55-724e91-e54f6d-f8c630
-
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: 'class', // or 'media' or 'class'
@@ -28,13 +26,39 @@ module.exports = {
     },
     extend: {
       colors: {
-        blue: '#ABCAF0',
-        pink: '#F0C4AB',
+        blue: {
+          DEFAULT: '#ABCAF0',
+          dark: '#86B3EA',
+          darkest: '#123957'
+        },
+        pink: {
+          DEFAULT: '#F0C4AB',
+          dark: '#EAAA86',
+          darkest: '#DA6E2F',
+        },
+        purple: {
+          DEFAULT: '#9e9be3',
+          dark: '#5C57C7',
+          darkest: '#312c83'
+        },
+        teal: {
+          DEFAULT: '#99EBE1',
+          dark: '#42d9c8',
+          darkest: '#0e6c65'
+        },
+        yellow: {
+          DEFAULT: '#FCE19C',
+          dark: '#F9C94D',
+          darkest: '#766324'
+        },
         dark: '#333333',
         fuchsia: '#f0abdf',
         green: '#dff0ab',
         obsidian: '#4F4F4F',
-        muted: '#5C5C5C',
+        muted: {
+          light: '#828282',
+          DEFAUTL: '#5C5C5C',
+        },
         light: '#E0E0E0'
       },
       lineClamp: {
@@ -42,6 +66,9 @@ module.exports = {
         8: '8',
         9: '9',
         10: '10',
+      },
+      letterSpacing: {
+        widest: '.2em'
       }
     }
   },

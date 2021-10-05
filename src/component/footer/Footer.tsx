@@ -26,12 +26,12 @@ export default class Footer extends React.Component<IFooterProps, {}> {
               entries={[
               {
                 title: "Projects",
-                link: "#Projects",
+                link: "#projects",
                 scroll: true,
               },
               {
                 title: "About",
-                link: "#About",
+                link: "#about",
                 scroll: true
               }
             ]}/>
