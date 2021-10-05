@@ -9,7 +9,7 @@ export default class Section extends React.Component<ISectionProps, ISectionStat
     return <section id={this.props.id}
                     className={[
                         "section",
-                      ...(this.props.fullWidth ? ["w-screen"] : ["max-w-screen-xxl mx-auto px-4 lg:px-8"])
+                      ...(this.props.fullWidth ? [""] : ["max-w-screen-xxl mx-auto px-4 lg:px-8"])
                     ].join(" ")}
                     aria-labelledby={`${this.props.id}-title`}
                     role="article">

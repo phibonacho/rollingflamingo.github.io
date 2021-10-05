@@ -1,7 +1,27 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  purge: {
+    enabled: true,
+    content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+    safelist: [
+      'bg-blue',
+      'bg-pink',
+      'bg-purple',
+      'bg-teal',
+      'bg-yellow',
+      'text-blue-darkest',
+      'text-pink-darkest',
+      'text-purple-darkest',
+      'text-teal-darkest',
+      'text-yellow-darkest',
+      'border-blue-darkest',
+      'border-pink-darkest',
+      'border-purple-darkest',
+      'border-teal-darkest',
+      'border-yellow-darkest'
+    ]
+  },
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     flex: {
