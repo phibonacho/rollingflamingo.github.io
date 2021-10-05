@@ -1,12 +1,14 @@
 import Toggle from "../Toggle";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {IconProp} from "@fortawesome/fontawesome-svg-core";
 
 import './themeToggle.scss';
 
 export default class ThemeToggle extends Toggle {
   protected renderLabel(children?: JSX.Element): JSX.Element {
-    let icon = (this.context.theme === 'dark' ? 'sun' : 'moon') as IconProp;
-    return super.renderLabel(<FontAwesomeIcon icon={icon} size={'2x'}/>);
+    return super.renderLabel(<FontAwesomeIcon icon={'adjust'} size={'2x'} className={`rotate-zoom-out ${this.transitioning() ? 'fade' : ''}`}/>);
+  }
+
+  private transitioning(): boolean {
+    return this.state.checked !== this.state.delayChecked;
   }
 }

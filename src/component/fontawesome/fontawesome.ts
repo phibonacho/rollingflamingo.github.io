@@ -2,16 +2,18 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons/faLinkedin";
 import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
 import { faDocker } from "@fortawesome/free-brands-svg-icons/faDocker";
-import { faMoon } from "@fortawesome/free-solid-svg-icons/faMoon";
-import { faSun } from "@fortawesome/free-solid-svg-icons/faSun";
+import {faAdjust} from "@fortawesome/free-solid-svg-icons/faAdjust";
+import {faHeart} from "@fortawesome/free-solid-svg-icons/faHeart";
+import {faExternalLinkSquareAlt} from "@fortawesome/free-solid-svg-icons/faExternalLinkSquareAlt";
 
 library.add(
-  // brand
-  faLinkedin,
-  faGithub,
-  faDocker,
+    // brand
+    faLinkedin,
+    faGithub,
+    faDocker,
 
-  // solid
-  faMoon,
-  faSun
+    // solid
+    faAdjust,
+    faHeart,
+    faExternalLinkSquareAlt
 );

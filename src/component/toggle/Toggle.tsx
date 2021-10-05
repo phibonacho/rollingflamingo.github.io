@@ -11,7 +11,8 @@ export default class Toggle extends React.Component<IToggleProps, IToggleState>{
   constructor(props: IToggleProps) {
     super(props);
     this.state = {
-      checked: false
+      checked: false,
+      delayChecked: false
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -31,9 +32,21 @@ export default class Toggle extends React.Component<IToggleProps, IToggleState>{
   }
 
   private handleClick(e: ChangeEvent) {
-    this.setState({
-      checked: !this.state.checked
-    }, this.props.onClick)
+    if(!this.props.delay)
+      this.setState({
+        checked: !this.state.checked
+      }, this.props.onClick)
+    else {
+      this.setState({
+        delayChecked: !this.state.delayChecked
+      }, () => {
+        setTimeout(() => {
+          this.setState({
+            checked: !this.state.checked
+          }, this.props.onClick)
+        }, this.props.delay);
+      })
+    }
   }
 
 }

@@ -1,31 +1,108 @@
 @import "./styles/abstract/variables";
-@import "./styles/typography/poppins";
+@import "./styles/abstract/typography";
+
+@import "~tailwindcss/base";
+@import "~tailwindcss/components.css";
+@import "~tailwindcss/utilities.css";
+@import "~tailwindcss/screens.css";
+@import "~tailwindcss/variants.css";
+
+html {
+}
 
 * {
   font-family: 'Poppins', sans-serif;
+  font-style: normal;
 }
 
 body {
-  background: $dark;
-}
-
-.temp-disclaimer {
-  display: none;
-  padding: .5rem;
-
-  &.dark {
-    background: $dark;
-  }
-
-  &.light {
-    background: $light;
-  }
-
-  @include media-breakpoint-down(lg) {
-    display: block;
+  background: url("./media/images/particles_bg.png") repeat;
+  .dark & {
+    background: url("./media/images/particles_dark.png") repeat;
   }
 }
 
-:root * {
-  //@include scroll-animation(var(--scroll), -1s);
+.App {
+}
+
+.title-wrapper {
+  position: relative;
+
+  h1 {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+  }
+
+  @screen xl {
+    position: initial;
+
+    h1 {
+      position: initial;
+    }
+  }
+
+}
+
+.working-experiences {
+  display: flex;
+  flex-flow: row wrap;
+
+  .first-exp {
+    /*    @include media-breakpoint-up(lg) {
+          order: 3;
+          flex: 1 0 33%;
+        }*/
+
+    /*    @include media-breakpoint-between(sm, lg) {
+          flex: 3 0 auto;
+        }*/
+  }
+
+  .second-exp {
+    /*    @include media-breakpoint-up(lg) {
+          order: 1;
+          flex: 2 0 50%;
+          display: flex;
+          justify-content: flex-end;
+        }
+        @include media-breakpoint-between(sm, lg) {
+          order: 3;
+          flex: 1 0 60%;
+        }*/
+  }
+
+  .third-exp {
+    /*    @include media-breakpoint-up(lg) {
+          order: 4;
+          flex: 1 0 auto;
+        }
+        @include media-breakpoint-between(sm, lg) {
+          order: 2;
+          flex: 1 0 40%;
+        }*/
+  }
+
+  .fourth-exp {
+    /*    @include media-breakpoint-up(lg) {
+          order: 2;
+          flex: 1 0 50%;
+          display: flex;
+          justify-content: flex-start;
+        }
+        @include media-breakpoint-between(sm, lg) {
+          order: 4;
+          flex: 3 0 auto;
+          display: flex;
+          justify-content: flex-end;
+        }*/
+
+  }
+
+  .last-exp {
+    order: 5;
+    /*    @include media-breakpoint-up(lg) {
+          flex: 1 0 33%;
+        }*/
+  }
 }

@@ -15,18 +15,19 @@ export default class PersonCard extends React.Component<IPersonCardProps, IPerso
           {this.props.descriptions.map((description, i) => (
             <p key={i}>{description}</p>
           ))}
-          <div className={'lang-list'}>
-            <ul>
-              {this.props.featuredLinks.map((fl, i) =>
-                (<li key={i}>
-                  <a href={fl.url}>
-                    <FontAwesomeIcon icon={fl.icon}/>
-                  </a>
-                </li>)
-              )}
-            </ul>
-          </div>
         </div>
+        <div className={'lang-list'}>
+          <ul>
+            {this.props.featuredLinks.map((fl, i) =>
+              (<li key={i}>
+                <a href={fl.url}>
+                  <FontAwesomeIcon icon={fl.icon}/>
+                </a>
+              </li>)
+            )}
+          </ul>
+        </div>
+
       </div>
     );
   }

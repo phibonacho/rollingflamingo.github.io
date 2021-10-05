@@ -21,6 +21,8 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "src",
+    "node_modules/gsap/types/gsap-core.d.ts",
+    "node_modules/gsap/types/ease.d.ts"
   ]
 }

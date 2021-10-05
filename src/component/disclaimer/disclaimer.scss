@@ -2,13 +2,14 @@
 
 .disclaimer {
   border-radius: 1rem;
+  border-bottom-width: 2px !important;
   margin: auto;
 
   @include media-breakpoint-up(md) {
     width: 75%;
   }
 
-  @include media-breakpoint-up(xxl) {
+  @include media-breakpoint-up(xl) {
     width: 50%;
   }
 
@@ -32,6 +33,7 @@
     background: $light;
     color: $dark;
     box-shadow: 4px 10px 3px rgba(0,0,0,0.4);
+    border: 1px solid darken($light, 5);
   }
 
   &.dark {

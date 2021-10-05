@@ -27,7 +27,6 @@
     "babel-plugin-named-asset-import": "^0.3.7",
     "babel-preset-react-app": "^10.0.0",
     "bfj": "^7.0.2",
-    "bootstrap": "^5.0.0-beta1",
     "camelcase": "^6.1.0",
     "case-sensitive-paths-webpack-plugin": "2.3.0",
     "css-loader": "4.3.0",
@@ -85,10 +84,11 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "yarn graphics && node scripts/build.js",
     "test": "node scripts/test.js",
     "generate-bg": "node trianglify_background.js",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "graphics": "rm -rf ./src/component/graphics/* && svgr -d ./src/component/graphics ./src/media/graphics/*.svg --typescript"
   },
   "eslintConfig": {
     "extends": [
@@ -166,6 +166,11 @@
     ]
   },
   "devDependencies": {
-    "@types/trianglify": "^1.2.0"
+    "@svgr/cli": "5.4.0",
+    "@tailwindcss/line-clamp": "^0.2.1",
+    "@types/trianglify": "^1.2.0",
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.5",
+    "tailwindcss": "^2.2.2"
   }
 }
