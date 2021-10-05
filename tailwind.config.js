@@ -19,7 +19,7 @@ module.exports = {
       'text-pink-dark',
       'text-purple-dark',
       'text-teal-dark',
-      'text-yellow-darkest',
+      'text-yellow-dark',
       'border-blue-darkest',
       'border-pink-darkest',
       'border-purple-darkest',
