@@ -1,6 +1,6 @@
 {
   "name": "rollingflamingo.github.io",
-  "homepage": "https://rollingflamingo.github.io/",
+  "homepage": "https://www.andreastorace.it/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -166,6 +166,7 @@
     ]
   },
   "devDependencies": {
+    "@headlessui/react": "^1.4.1",
     "@svgr/cli": "5.4.0",
     "@tailwindcss/line-clamp": "^0.2.1",
     "@types/trianglify": "^1.2.0",

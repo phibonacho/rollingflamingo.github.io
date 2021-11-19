@@ -2,10 +2,10 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   purge: {
-    enabled: true,
     content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
     safelist: [
       'bg-blue',
+      'bg-blue-darkest',
       'bg-pink',
       'bg-purple',
       'bg-teal',
@@ -27,8 +27,13 @@ module.exports = {
       'border-yellow-darkest'
     ]
   },
-  darkMode: 'class', // or 'media' or 'class'
   theme: {
+    zIndex: {
+      '25': 25,
+      '50': 50,
+      '75': 75,
+      '100': 100,
+    },
     flex: {
       '1-33': '0 1 33%',
       '2-50': '0 1 50%',

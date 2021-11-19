@@ -36,7 +36,7 @@ export default class Header extends React.Component<INavbarProps, INavbarState> 
 
   public render() {
     return (
-      <header ref={this.selector} className={`custom-navbar ${this.state.transform? 'bg-white' : 'bg-transparent'}`}>
+      <header ref={this.selector} className={`custom-navbar z-40 ${this.state.transform? 'bg-white' : 'bg-transparent'}`}>
         <div className={'main-container'}>
           <div className={'left-container'}>
             { this.props.leftContent }

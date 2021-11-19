@@ -7,18 +7,18 @@ import Me from "../../media/images/cloud-me.png";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import SvgCloudTriangleLg from "../graphics/CloudTriangleLg";
 
-let description: string = "Always looking for new technologies and frameworks to mess up my projects! This is my portfolio, please don't leave! I don't ask for cookies!";
+let description: string = "Frontend developer, Humanities computing student and plant enthusiast. Always looking for new technologies and frameworks to mess up my projects. This is my portfolio, please don't leave! I don't ask for cookies!";
 
 export default class HeroBanner extends React.Component<IHeroBannerProps, IHeroBannerState> {
   public render() {
     return <div className="hero-banner" role='banner'>
       <div className="col-span-7 md:col-span-6 p-10 lg:p-20 self-center mx-auto">
-        <div className="flex flex-col justify-between h-96 sm:h-full xl:h-96">
+        <div className="flex flex-col justify-between sm:h-full xl:h-96">
           <div className="title-wrapper">
             <CloudTriangleMd className="fill-current text-blue xl:hidden"/>
             <h1 className="text-4xl lg:text-5xl text-obsidian dark:text-light font-bold">It's-a me, Andreo!</h1>
           </div>
-          <p className="text-base text-dark dark:text-white xl:line-clamp-5 mx-10 hidden">
+          <p className="text-base text-dark dark:text-white xl:line-clamp-5 mx-10 my-10 md:hidden">
             {
               description
             }

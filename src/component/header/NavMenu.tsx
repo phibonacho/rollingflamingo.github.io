@@ -2,6 +2,7 @@ import * as React from "react";
 import "./header.scss";
 
 export interface INavMenuProps {
+  description: string;
   entries: {
     title: string;
     link: string;
@@ -26,17 +27,19 @@ export default class NavMenu extends React.Component<INavMenuProps, {}>{
       }
     }
     else {
-      window.open(link, "_blank")
+      window.open(link, "_blank");
     }
   }
-
+//
   public render() {
-    return <ul className={`nav-menu ${this.props.vertical? 'vertical' : ''}`}>
-      {
-        this.props.entries.map((entry, i) => <li key={i} className='nav-menu-item'>
-          <a href={entry.link} onClick={(event) => NavMenu.clickHandler(event, entry.link, entry.scroll)}>{entry.title}</a>
-        </li>)
-      }
-    </ul>;
+    return <div role="navigation" aria-label={this.props.description}>
+      <ul className={`nav-menu ${this.props.vertical? 'vertical' : ''}`}>
+        {
+          this.props.entries.map((entry, i) => <li key={i} className='nav-menu-item'>
+            <a href={entry.link} onClick={(event) => NavMenu.clickHandler(event, entry.link, entry.scroll)} aria-label={entry.title}>{entry.title}</a>
+          </li>)
+        }
+      </ul>
+    </div>;
   }
 }

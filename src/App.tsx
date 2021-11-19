@@ -20,9 +20,6 @@ interface IAppProps {
 
 }
 
-interface IAppState {
-}
-
 let projects: IFullWidthProject[] = [
   {
     title: 'Herschel',
@@ -37,7 +34,7 @@ let projects: IFullWidthProject[] = [
     description: 'Tiresia was my first attempt to build a progressive webapp, it is written in Vue.js and it is basically a random number picker I build for fun.',
     tags: ['vue', "web<br>pack", "pwa"],
     image: Tiresia,
-    link: 'https://andreastorace.it/tiresia',
+    link: 'https://www.andreastorace.it/tiresia',
     theme: 'teal'
   },
   {
@@ -58,17 +55,14 @@ let projects: IFullWidthProject[] = [
   }
 ];
 
-export default class App extends React.Component<IAppProps, IAppState>{
-
-  public componentDidMount() {
-  }
-
-  public render() {
-    return (
+export default function App(props: IAppProps){
+  return (
         <main className="App">
           <Header
               leftContent={<TextLogo onClick={() => window.scroll({ top: 0, left: 0, behavior: "smooth"})}/>}
-              rightContent={<NavMenu entries={[
+              rightContent={<NavMenu
+                  description={"Page sections"}
+                  entries={[
                 {
                   title: "Projects",
                   link: "#projects",
@@ -148,19 +142,9 @@ export default class App extends React.Component<IAppProps, IAppState>{
               </div>
             </div>
           </Section>
-          <Footer/>
+          <Footer>
+            <Footer.cosa>I'm a footer's child</Footer.cosa>
+          </Footer>
         </main>
     );
-  }
 }
-
-/*
-*           <Experience
-            name="Computer Science Bachelor Degree"
-            period="30 March 2020"
-            faculty="Università degli studi di Genova"
-            description=""
-          />
-
-*
-* */
