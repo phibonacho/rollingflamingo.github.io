@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {gsap} from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import './App.scss';
 
@@ -15,6 +17,8 @@ import Experience from "./component/timeline/Experience";
 import TextLogo from "./component/graphics/TextLogo";
 import Footer from "./component/footer/Footer";
 import FullWidthProject, {IFullWidthProject} from "./component/projects/FullWIdthProject";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface IAppProps {
 
@@ -56,6 +60,23 @@ let projects: IFullWidthProject[] = [
 ];
 
 export default function App(props: IAppProps){
+  useEffect(() => {
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#about',
+        start: 'top bottom',
+        end: '120',
+        scrub: .1
+      }
+    });
+    tl
+        .from('#first-exp', { y: 60, scale: .8, opacity: 0 })
+        .from('#second-exp', { y:40, scale: .8, opacity: 0 }, 0)
+        .from('#third-exp', { y:40, scale: .8, opacity: 0 }, .2)
+        .from('#fourth-exp', { y:40, scale: .8, opacity: 0 }, .4)
+        .from('#fifth-exp', { y: 60, scale: .8, opacity: 0 }, .6);
+  });
+
   return (
         <main className="App">
           <Header
@@ -110,7 +131,7 @@ export default function App(props: IAppProps){
                     certificate
                 />
               </div>
-              <div id="last-exp" className='flex justify-center xl:order-2 md:order-4 xl:justify-start xl:flex-2-50 flex-full'>
+              <div id="fourth-exp" className='flex justify-center xl:order-2 md:order-4 xl:justify-start xl:flex-2-50 flex-full'>
                 <Experience
                     className="md:ml-32 xl:ml-0"
                     name="Frontend developer"
@@ -120,7 +141,7 @@ export default function App(props: IAppProps){
                     variant={3}
                 />
               </div>
-              <div id="last-exp" className='flex order-5 xl:flex-1-33 flex-full justify-center'>
+              <div id="fifth-exp" className='flex order-5 xl:flex-1-33 flex-full justify-center'>
                 <Experience
                     className="md:mr-72 xl:mr-0"
                     name="Frontend Developer"
@@ -142,9 +163,7 @@ export default function App(props: IAppProps){
               </div>
             </div>
           </Section>
-          <Footer>
-            <Footer.cosa>I'm a footer's child</Footer.cosa>
-          </Footer>
+          <Footer/>
         </main>
     );
 }
