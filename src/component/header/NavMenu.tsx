@@ -36,7 +36,7 @@ export default class NavMenu extends React.Component<INavMenuProps, {}>{
       <ul className={`nav-menu ${this.props.vertical? 'vertical' : ''}`}>
         {
           this.props.entries.map((entry, i) => <li key={i} className='nav-menu-item'>
-            <a href={entry.link} onClick={(event) => NavMenu.clickHandler(event, entry.link, entry.scroll)} aria-label={entry.title}>{entry.title}</a>
+            <a href={entry.link} className="text-obsidian dark:text-white" onClick={(event) => NavMenu.clickHandler(event, entry.link, entry.scroll)} aria-label={entry.title}>{entry.title}</a>
           </li>)
         }
       </ul>
