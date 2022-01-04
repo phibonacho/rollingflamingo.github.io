@@ -1,5 +1,5 @@
 export default interface IToggleProps {
-  id: string;
+  name: string;
   delay?: number;
   onClick?: () => void;
 }

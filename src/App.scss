@@ -16,9 +16,17 @@ html {
 }
 
 body {
-  background: url("./media/images/particles_bg.png") repeat;
-  .dark & {
-    background: url("./media/images/particles_dark.png") repeat;
+  @media(prefers-color-scheme: light) {
+    background: url("./media/images/particles_bg.png") repeat;
+  }
+  @media(prefers-color-scheme: dark) {
+    background-image: url("./media/images/particles_dark.png");
+    background-repeat: repeat;
+    @apply bg-zinc-900;
+  }
+
+  #root {
+    overflow-x: hidden;
   }
 }
 

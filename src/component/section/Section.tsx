@@ -14,7 +14,7 @@ export default class Section extends React.Component<ISectionProps, ISectionStat
                     aria-labelledby={`${this.props.id}-title`}
                     role="article">
       <h2 className={[
-        "text-5xl font-semibold text-obsidian dark:text-light my-10",
+        "text-5xl font-semibold text-obsidian dark:text-white my-10",
         ...(this.props.srOnly ? ["hidden"] : []),
         ...(this.props.fullWidth ? ["max-w-screen-xxl mx-auto pl-28"] : ["md:ml-20"])
       ].join(" ")} id={`${this.props.id}-title`}>{ this.props.title }</h2>
