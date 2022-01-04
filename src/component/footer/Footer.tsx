@@ -4,6 +4,7 @@ import "./footer.scss";
 import NavMenu from "../header/NavMenu";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Logo} from "../logo/Logo";
+import {ContactButton} from "../contactDialog/ContactDialog";
 
 export interface IFooterProps {
 
@@ -19,6 +20,7 @@ export default function Footer(props: IFooterProps) {
           }}/> }
         </div>
         <div className='col-span-3 md:col-span-1 self-center justify-center items-center'>
+          <ContactButton cta='Contact me!'/>
         </div>
         <div className='col-span-3 md:col-span-1 self-center'>
           <NavMenu

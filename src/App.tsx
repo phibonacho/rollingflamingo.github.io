@@ -17,6 +17,7 @@ import Experience from "./component/timeline/Experience";
 import Footer from "./component/footer/Footer";
 import FullWidthProject, {IFullWidthProject} from "./component/projects/FullWIdthProject";
 import {Logo} from "./component/logo/Logo";
+import ContactDialog from "./component/contactDialog/ContactDialog";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -174,6 +175,7 @@ export default function App(props: IAppProps){
           </Section>
         </main>
         <Footer/>
+        <ContactDialog/>
       </>
   );
 }

@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import themeReducer from "./features/theme/themeSlice";
+import dialogReducer from "./features/dialog/dialogSlice";
 
 export const store = configureStore({
     reducer: {
-        theme: themeReducer
+        theme: themeReducer,
+        dialog: dialogReducer
     }
 });
 
