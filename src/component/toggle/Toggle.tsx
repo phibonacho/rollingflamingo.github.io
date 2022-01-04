@@ -1,52 +1,20 @@
-import * as React from 'react';
-import IToggleProps, {IToggleState} from "./IToggle";
+import {useState} from "react";
+import { useSelector, useDispatch } from 'react-redux';
 
+import IToggleProps from "./IToggle";
+import { RootState } from '../../store';
+import { toggle } from '../../features/theme/themeSlice';
 import './toggle.scss';
-import ThemeContext from "../theme/ThemeContext";
-import {ChangeEvent} from "react";
 
-export default class Toggle extends React.Component<IToggleProps, IToggleState>{
-  static contextType = ThemeContext;
 
-  constructor(props: IToggleProps) {
-    super(props);
-    this.state = {
-      checked: false,
-      delayChecked: false
-    };
+export const Toggle = (props: IToggleProps) => {
+  const theme = useSelector((state: RootState) => state.theme.value);
+  const [ checked, setChecked ] = useState(theme === 'dark');
+  const dispatch = useDispatch();
 
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  public render() {
-    return (<div className={`toggle ${this.context.theme}`}>
-      <input type="checkbox" id={this.props.id} checked={this.state.checked} onChange={this.handleClick} />
-      {this.renderLabel()}
-    </div>);
-  }
-
-  protected renderLabel(children?: JSX.Element) {
-    return (<label htmlFor={this.props.id}>
-      {children}
-    </label>);
-  }
-
-  private handleClick(e: ChangeEvent) {
-    if(!this.props.delay)
-      this.setState({
-        checked: !this.state.checked
-      }, this.props.onClick)
-    else {
-      this.setState({
-        delayChecked: !this.state.delayChecked
-      }, () => {
-        setTimeout(() => {
-          this.setState({
-            checked: !this.state.checked
-          }, this.props.onClick)
-        }, this.props.delay);
-      })
-    }
-  }
-
-}
+  return <div className={`toggle ${theme}`} role="checkbox" aria-checked={checked} aria-label={props.name} onClick={(event) => {
+    dispatch((toggle(!checked)));
+    setChecked(!checked);
+  }}>
+  </div>;
+};

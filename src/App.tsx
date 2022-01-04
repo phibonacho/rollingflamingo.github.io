@@ -14,9 +14,9 @@ import Coeus from "./media/images/coeus.png";
 import Ponos from "./media/images/ponos.png";
 import NavMenu from "./component/header/NavMenu";
 import Experience from "./component/timeline/Experience";
-import TextLogo from "./component/graphics/TextLogo";
 import Footer from "./component/footer/Footer";
 import FullWidthProject, {IFullWidthProject} from "./component/projects/FullWIdthProject";
+import {Logo} from "./component/logo/Logo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,7 +65,7 @@ export default function App(props: IAppProps){
       scrollTrigger: {
         trigger: '#about',
         start: 'top bottom',
-        end: '120',
+        end: 'top 80px',
         scrub: .1
       }
     });
@@ -75,27 +75,36 @@ export default function App(props: IAppProps){
         .from('#third-exp', { y:40, scale: .8, opacity: 0 }, .2)
         .from('#fourth-exp', { y:40, scale: .8, opacity: 0 }, .4)
         .from('#fifth-exp', { y: 60, scale: .8, opacity: 0 }, .6);
-  });
+  }, []);
 
   return (
-        <main className="App">
-          <Header
-              leftContent={<TextLogo onClick={() => window.scroll({ top: 0, left: 0, behavior: "smooth"})}/>}
-              rightContent={<NavMenu
+      <>
+        <Header
+            leftContent={
+              <Logo attrs={{
+                onClick: () => window.scroll({ top: 0, left: 0, behavior: "smooth"})
+              }
+              }/>
+            }
+            rightContent={
+
+              <NavMenu
                   description={"Page sections"}
                   entries={[
-                {
-                  title: "Projects",
-                  link: "#projects",
-                  scroll: true
-                },
-                {
-                  title: "About",
-                  link: "#about",
-                  scroll: true
-                }
-              ]}/>}
-          />
+                    {
+                      title: "Projects",
+                      link: "#projects",
+                      scroll: true
+                    },
+                    {
+                      title: "About",
+                      link: "#about",
+                      scroll: true
+                    }
+                  ]}/>
+            }
+        />
+        <main className="App">
           <HeroBanner/>
           <Section id={'projects'} title={'Projects'} fullWidth>
             {
@@ -156,14 +165,15 @@ export default function App(props: IAppProps){
           <Section id={"about-me"} title='About me' srOnly>
             <div className='grid grid-cols-12 gap-4'>
               <div className='col-span-12 md:col-span-5 lg:col-span-4 xl:col-span-3 text-center md:text-right self-center'>
-                <h3 className='font-bold text-5xl text-obsidian dark:text-light pb-4'>Keep<br/>on<br/>learning</h3>
+                <h3 className='font-bold text-5xl text-obsidian dark:text-white pb-4'>Keep<br/>on<br/>learning</h3>
               </div>
               <div className='col-span-12 md:col-span-7 lg:col-span-8 xl:col-span-9 self-center lg:line-clamp-6'>
                 <p className='dark:text-white'>I'm a former computer science student keen on illustration and nature. I've always been curious about how things works and how they are built, computer science gave me the chance to widen this interest from mechanical world to computer's one. Problem solving shouldn't be limited to solve a problem by providing the answer or a solution, it should include creating a framework for the users to use for recognizing and overcome similar issues, a solution that grows and improves with the user, for the user.</p>
               </div>
             </div>
           </Section>
-          <Footer/>
         </main>
-    );
+        <Footer/>
+      </>
+  );
 }
