@@ -6,7 +6,7 @@ import './App.scss';
 
 import HeroBanner from "./component/hero-banner/HeroBanner";
 import "./component/fontawesome/fontawesome";
-import Header from "./component/header/Header";
+import { Header } from "./component/header/Header";
 import Section from "./component/section/Section";
 import Herschel from "./media/images/herschel.png";
 import Tiresia from "./media/images/tiresia.png";

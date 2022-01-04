@@ -41,7 +41,7 @@ export default function FullWidthProject(props: IFullWidthProject) {
         // add animations and labels to the timeline
 
         tl
-            .from(selector, { rotation: rangedRandom(7, 15), x: rangedRandom(30, 60), y: rangedRandom(30, 60), scale: 1.4 }, 0)
+            .from(selector, { rotation: rangedRandom(7, 15), x: rangedRandom(30, 60), y: rangedRandom(30, 60), scale: 1.5 }, 0)
             .from(d1, {x: -rangedRandom(60, 80), y: rangedRandom(30, 50), rotation: rangedRandom(8, 16), duration: 1}, 0)
             .from(d2, {x: -rangedRandom(60, 80), y: -rangedRandom(120, 160), rotation: rangedRandom(8, 16), duration: 1}, 0);
 
