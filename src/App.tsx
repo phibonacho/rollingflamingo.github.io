@@ -12,7 +12,7 @@ import Herschel from "./media/images/herschel.png";
 import Tiresia from "./media/images/tiresia.png";
 import Coeus from "./media/images/coeus.png";
 import Ponos from "./media/images/ponos.png";
-import NavMenu from "./component/header/NavMenu";
+import { NavMenu } from "./component/header/NavMenu";
 import Experience from "./component/timeline/Experience";
 import Footer from "./component/footer/Footer";
 import FullWidthProject, {IFullWidthProject} from "./component/projects/FullWIdthProject";
