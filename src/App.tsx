@@ -2,17 +2,17 @@ import React, {useEffect} from 'react';
 import {gsap} from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-import './App.scss';
-
-import HeroBanner from "./component/hero-banner/HeroBanner";
-import "./component/fontawesome/fontawesome";
-import { Header } from "./component/header/Header";
-import Section from "./component/section/Section";
 import Herschel from "./media/images/herschel.png";
 import Tiresia from "./media/images/tiresia.png";
 import Coeus from "./media/images/coeus.png";
 import Ponos from "./media/images/ponos.png";
-import { NavMenu } from "./component/header/NavMenu";
+import './App.scss';
+
+import HeroBanner from "./component/hero-banner/HeroBanner";
+import "./component/fontawesome/fontawesome";
+import {Header} from "./component/header/Header";
+import Section from "./component/section/Section";
+import {NavMenu} from "./component/header/NavMenu";
 import Experience from "./component/timeline/Experience";
 import Footer from "./component/footer/Footer";
 import FullWidthProject, {IFullWidthProject} from "./component/projects/FullWIdthProject";
@@ -60,23 +60,48 @@ let projects: IFullWidthProject[] = [
   }
 ];
 
-export default function App(props: IAppProps){
-  useEffect(() => {
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#about',
-        start: 'top bottom',
-        end: 'top 80px',
-        scrub: .1
-      }
-    });
-    tl
+let tl: any;
+
+let initTimeline = (mobile: boolean) => {
+  if(tl) {
+    tl.clear();
+    tl.kill();
+    tl = null;
+  }
+
+  tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#about',
+      start: 'top bottom',
+      end: mobile ? 'bottom center' : 'top 80px',
+      scrub: .1
+    }
+  });
+
+  if(mobile)
+    tl.clear()
+        .from('#first-exp', { y: 60, scale: .8, opacity: 0 }, )
+        .from('#second-exp', { y:40, scale: .8, opacity: 0 })
+        .from('#third-exp', { y:40, scale: .8, opacity: 0 })
+        .from('#fourth-exp', { y:40, scale: .8, opacity: 0 })
+        .from('#fifth-exp', { y: 60, scale: .8, opacity: 0 });
+  else
+    tl.clear()
         .from('#first-exp', { y: 60, scale: .8, opacity: 0 })
-        .from('#second-exp', { y:40, scale: .8, opacity: 0 }, 0)
-        .from('#third-exp', { y:40, scale: .8, opacity: 0 }, .2)
+        .from('#second-exp', { y:40, scale: .8, opacity: 0 },  0)
+        .from('#third-exp', { y:40, scale: .8, opacity: 0 },  .2)
         .from('#fourth-exp', { y:40, scale: .8, opacity: 0 }, .4)
-        .from('#fifth-exp', { y: 60, scale: .8, opacity: 0 }, .6);
-  }, []);
+        .from('#fifth-exp', { y: 60, scale: .8, opacity: 0 },  .6);
+
+  tl.restart();
+};
+
+export default function App(props: IAppProps){
+  const mobileMedia = window.matchMedia(`(max-width: 576px)`);
+
+  useEffect(() => {
+    initTimeline(mobileMedia.matches);
+  });
 
   return (
       <>
