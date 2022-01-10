@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import "./footer.scss";
-import NavMenu from "../header/NavMenu";
+import { NavMenu } from "../header/NavMenu";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Logo} from "../logo/Logo";
 import {ContactButton} from "../contactDialog/ContactDialog";
@@ -12,17 +12,17 @@ export interface IFooterProps {
 
 export default function Footer(props: IFooterProps) {
   return <footer className="bg-blue dark:bg-zinc-800 w-full">
-    <div className="max-w-screen-xxl pt-16 pb-6 px-8 lg:px-16 m-auto">
-      <div className="grid grid-cols-3 gap-0.5">
-        <div className='col-span-3 md:col-span-1 self-center'>
+    <div className="max-w-screen-xxl sm:pt-16 pt-6 pb-6 px-8 lg:px-16 m-auto">
+      <div className="grid grid-cols-3 gap-6 sm:gap-0.5">
+        <div className='col-span-3 md:col-span-1 self-center order-3 sm:order-1'>
           { <Logo white attrs={{
             className: 'mx-auto'
           }}/> }
         </div>
-        <div className='col-span-3 md:col-span-1 self-center justify-center items-center'>
+        <div className='col-span-3 md:col-span-1 flex flex-row justify-center self-center order-1 sm:order-2'>
           <ContactButton cta='Contact me!'/>
         </div>
-        <div className='col-span-3 md:col-span-1 self-center'>
+        <div className='col-span-3 md:col-span-1 self-center order-2 sm:order-3'>
           <NavMenu
               description={"Page sections"}
               vertical

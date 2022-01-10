@@ -19,7 +19,8 @@ export const dialogSlice = createSlice({
     initialState,
     reducers: {
         init: (state, action: PayloadAction<DialogConfig>) => {
-            state.dialogs.push(action.payload);
+            if(!state.dialogs.find(d => d.ref === action.payload.ref))
+                state.dialogs.push(action.payload);
         },
         toggle: (state, action: PayloadAction<DialogConfig>) => {
             const i = state.dialogs.findIndex(dc => dc.ref === action.payload.ref);

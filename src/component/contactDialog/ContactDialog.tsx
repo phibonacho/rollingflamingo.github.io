@@ -24,14 +24,15 @@ export const ContactButton = (props: IContactButton) => {
         ref: ref,
         show: true
     }));
+
     useEffect(() => {
         dispatch(init({
             ref: ref,
             show: false
         }))
-    }, []);
+    });
 
-    return <button className='rounded bg-pink px-4 py-2 text-pink-darkest font-bold' {...props.attrs} onClick={view}>
+    return <button className='rounded bg-blue-darkest dark:bg-obsidian mx-auto px-4 py-2 text-white font-bold' {...props.attrs} onClick={view}>
         {
             props.cta
         }
@@ -48,7 +49,7 @@ export default function ContactDialog(props: IContactDialog) {
     return <>
         <Transition.Root show={!!show} as={Fragment}>
             <Dialog as="div" className="fixed z-100 inset-0 overflow-y-auto" initialFocus={closeButtonRef} onClose={hide}>
-                <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <div className="flex items-center sm:items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                     <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"
@@ -73,7 +74,7 @@ export default function ContactDialog(props: IContactDialog) {
                         leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                     >
                         <div className="inline-block align-bottom bg-white dark:bg-zinc-900 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                            <div className="sm:flex flex-row sm:flex-row-reverse py-2 px-4">
+                            <div className="flex flex-row-reverse p-6 pb-2">
                                 <button ref={closeButtonRef} onClick={hide} title="Close contact modal"><span className="sr-only">Close contact modal</span><FontAwesomeIcon icon={["fas", "times"]} className="text-obsidian"/></button>
                             </div>
                             <div className="bg-white dark:bg-zinc-900 p-4 pt-0">
@@ -86,13 +87,16 @@ export default function ContactDialog(props: IContactDialog) {
                                             <p className="text-sm text-obsidian dark:text-white">
                                                 Reach me on Linkedin, Github or send me an email!
                                             </p>
-                                            <ul className="flex flex-column flex-wrap justify-center items-center p-4 px-8 text-xl" aria-label="Contact options">
-                                                <li className="flex-full p-4 flex-full p-4 flex flex-row items-center"><FontAwesomeIcon className="text-4xl text-blue-dark" icon={["fab", "linkedin"]}/>
-                                                    <a href="#" className="ml-4 text-obsidian dark:text-white">Andrea Storace</a></li>
-                                                <li className="flex-full p-4 flex-full p-4 flex flex-row items-center"><FontAwesomeIcon className="text-4xl text-blue-dark" icon={["fab", "github"]}/>
-                                                    <a href="#" className="ml-4 text-obsidian dark:text-white">rollingflamingo</a></li>
-                                                <li className="flex-full p-4 flex-full p-4 flex flex-row items-center"><FontAwesomeIcon className="text-4xl text-blue-dark" icon={["fas", "envelope"]}/>
-                                                    <a href="#" className="ml-4 text-obsidian dark:text-white">andrea.storace.uni@gmail.com</a></li>
+                                            <ul className="flex flex-column flex-wrap justify-center items-center p-4 px-2 sm:px-8 sm:text-xl" aria-label="Contact options">
+                                                <li className="w-full flex-full py-4 sm:px-4 flex flex-row items-center">
+                                                    <FontAwesomeIcon className="text-2xl sm:text-4xl dark:text-blue text-blue-darkest" icon={["fab", "linkedin"]}/>
+                                                    <a href="https://www.linkedin.com/in/andrea-storace-73b9b9103/" className="ml-4 text-obsidian dark:text-white">Andrea Storace</a></li>
+                                                <li className="w-full flex-full py-4 sm:px-4 flex flex-row items-center">
+                                                    <FontAwesomeIcon className="text-2xl sm:text-4xl dark:text-blue text-blue-darkest" icon={["fab", "github"]}/>
+                                                    <a href="https://github.com/rollingflamingo" className="ml-4 text-obsidian dark:text-white">rollingflamingo</a></li>
+                                                <li className="w-full flex-full py-4 sm:px-4 flex flex-row items-center">
+                                                    <FontAwesomeIcon className="text-2xl sm:text-4xl dark:text-blue text-blue-darkest" icon={["fas", "envelope"]}/>
+                                                    <a href="mailto:andrea.storace.uni@gmail.com" className="ml-4 text-obsidian dark:text-white line-clamp-1"><span>andrea.storace.uni@gmail.com</span></a></li>
                                             </ul>
                                         </div>
                                     </div>

@@ -6,6 +6,7 @@ import CloudTriangleMd from "../graphics/CloudTriangleMd";
 import Me from "../../media/images/cloud-me.png";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import SvgCloudTriangleLg from "../graphics/CloudTriangleLg";
+import {ContactButton} from "../contactDialog/ContactDialog";
 
 let description: string = "Frontend developer, Humanities computing student and plant enthusiast. Always looking for new technologies and frameworks to mess up my projects. This is my portfolio, please don't leave! I don't ask for cookies!";
 
@@ -23,14 +24,7 @@ export default class HeroBanner extends React.Component<IHeroBannerProps, IHeroB
               description
             }
           </p>
-          <ul className="flex xl:flex list-none justify-around pl-0 text-5xl mx-10 md:hidden">
-            <li>
-              <a href="https://github.com/rollingflamingo" aria-label="visit github profile"><FontAwesomeIcon icon={["fab", "github"]} className="text-dark dark:text-white"/></a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/andrea-storace-73b9b9103/" aria-label="visit Linkedin profile"><FontAwesomeIcon icon={["fab", "linkedin"]} className="text-dark dark:text-white"/></a>
-            </li>
-          </ul>
+          <ContactButton cta={"Let's get in touch!"}/>
         </div>
       </div>
       <div className="hidden md:block md:col-span-6 p-10 lg:p-20 self-center">
