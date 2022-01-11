@@ -41,7 +41,6 @@ export default function FullWidthProject(props: IFullWidthProject) {
         // add animations and labels to the timeline
 
         tl
-            .from(current, { backgroundPosition: '50px -150px' })
             .from(selector, { rotation: rangedRandom(7, 15), x: rangedRandom(30, 60), y: rangedRandom(30, 60), scale: 1.5 }, 0)
             .from(d1, {x: -rangedRandom(60, 80), y: rangedRandom(30, 50), rotation: rangedRandom(8, 16), duration: 1}, 0)
             .from(d2, {x: -rangedRandom(60, 80), y: -rangedRandom(120, 160), rotation: rangedRandom(8, 16), duration: 1}, 0);
@@ -55,7 +54,7 @@ export default function FullWidthProject(props: IFullWidthProject) {
         lowerDecoration: props.theme? `${props.theme}-dark` : 'obsidian'
     };
 
-    return <article ref={containerRef} className={`full-width-project bg-${colors.background} dark:bg-zinc-900`} id={`${props.title}-section`} aria-labelledby={`${props.title}-title`}>
+    return <article ref={containerRef} className={`full-width-project bg-${colors.background} dark:bg-transparent`} id={`${props.title}-section`} aria-labelledby={`${props.title}-title`}>
         <div className="min-h-screen xl:max-w-screen-xxl lg:max-w-screen-md mx-auto px-2 py-20 md:p-20  flex flex-row flex-wrap items-center">
             <div className="xl:order-2 flex-auto xl:flex-1-60 flex flex-col xl:pl-32 pb-20 relative">
                 <div className="project-image" style={({ backgroundImage: `url(${props.image})`})}>
