@@ -20,7 +20,7 @@ export default function Footer(props: IFooterProps) {
           }}/> }
         </div>
         <div className='col-span-3 md:col-span-1 flex flex-row justify-center self-center order-1 sm:order-2'>
-          <ContactButton cta='Contact me!'/>
+          <ContactButton cta="Let's get in touch!"/>
         </div>
         <div className='col-span-3 md:col-span-1 self-center order-2 sm:order-3'>
           <NavMenu

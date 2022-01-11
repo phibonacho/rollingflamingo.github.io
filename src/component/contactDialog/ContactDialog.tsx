@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../../store';
-import { toggle, init } from '../../features/dialog/dialogSlice';
+import {init, toggle} from '../../features/dialog/dialogSlice';
 
 const ref = 'contact-dialog';
 
@@ -19,6 +19,7 @@ export interface IContactButton {
 }
 
 export const ContactButton = (props: IContactButton) => {
+    const defaultStyle = ' rounded bg-blue-darkest dark:bg-obsidian mx-auto px-4 py-2 text-white font-bold';
     const dispatch = useDispatch();
     const view = () => dispatch(toggle({
         ref: ref,
@@ -32,7 +33,14 @@ export const ContactButton = (props: IContactButton) => {
         }))
     });
 
-    return <button className='rounded bg-blue-darkest dark:bg-obsidian mx-auto px-4 py-2 text-white font-bold' {...props.attrs} onClick={view}>
+    let attrs = props.attrs || {};
+
+    if(props.attrs?.className)
+        attrs.className += defaultStyle
+    else
+        attrs.className = defaultStyle
+
+    return <button {...attrs} onClick={view}>
         {
             props.cta
         }
