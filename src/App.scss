@@ -17,10 +17,10 @@ html {
 
 body {
   @media(prefers-color-scheme: light) {
-    background: url("./media/images/particles_bg.png") repeat;
+    background: url("./media/images/particles_bg.webp") repeat;
   }
   @media(prefers-color-scheme: dark) {
-    background-image: url("./media/images/particles_dark.png");
+    background-image: url("./media/images/particles_dark.webp");
     background-repeat: repeat;
     @apply bg-zinc-900;
   }
