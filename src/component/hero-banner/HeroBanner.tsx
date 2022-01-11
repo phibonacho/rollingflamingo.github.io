@@ -24,7 +24,7 @@ export default class HeroBanner extends React.Component<IHeroBannerProps, IHeroB
             }
           </p>
           <ContactButton cta={"Let's get in touch!"} attrs={{
-            className : 'hidden lg:block'
+            className : 'sm:hidden lg:block'
           }}/>
         </div>
       </div>
