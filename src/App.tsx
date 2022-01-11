@@ -93,10 +93,10 @@ export default function App(props: IAppProps){
       <>
         <Header
             leftContent={
-              <Logo attrs={{
-                onClick: () => window.scroll({ top: 0, left: 0, behavior: "smooth"})
-              }
-              }/>
+              <button title='Scroll back to top' aria-label={'Scroll back to top'} onClick={() => window.scroll({ top: 0, left: 0, behavior: "smooth"})}>
+                <Logo/>
+                <span className='hidden'>Scroll back to top</span>
+              </button>
             }
             rightContent={
 
@@ -106,17 +106,19 @@ export default function App(props: IAppProps){
                     {
                       title: "Projects",
                       link: "#projects",
+                      description: 'Scroll to project section',
                       scroll: true
                     },
                     {
                       title: "About",
                       link: "#about",
+                      description: 'Scroll to about section',
                       scroll: true
                     }
                   ]}/>
             }
         />
-        <main className="App">
+        <main>
           <HeroBanner/>
           <Section id={'projects'} title={'Projects'} fullWidth>
             {

@@ -6,6 +6,7 @@ export interface INavMenuProps {
   entries: {
     title: string;
     link: string;
+    description: string;
     scroll?: boolean;
   }[];
   vertical?: boolean;
@@ -21,6 +22,10 @@ const  clickHandler = (event: any, link: string, scroll: boolean = false, modifi
         left: 0,
         behavior: "smooth"
       });
+
+      setTimeout(() => {
+        (target as HTMLElement).focus();
+      }, 500);
     }
   }
   else {
@@ -33,7 +38,7 @@ export const NavMenu = (props: INavMenuProps) => {
     <ul className={`nav-menu ${props.vertical? 'vertical' : ''}`}>
       {
         props.entries.map((entry, i) => <li key={i} className='nav-menu-item'>
-          <a href={entry.link} className="text-obsidian dark:text-white" onClick={(event) => clickHandler(event, entry.link, entry.scroll)} aria-label={entry.title}>{entry.title}</a>
+          <a title={entry.description} href={entry.link} className="text-obsidian dark:text-white" onClick={(event) => clickHandler(event, entry.link, entry.scroll)}>{entry.title}</a>
         </li>)
       }
     </ul>

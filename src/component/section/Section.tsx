@@ -12,7 +12,8 @@ export default class Section extends React.Component<ISectionProps, ISectionStat
                       ...(this.props.fullWidth ? [""] : ["max-w-screen-xxl mx-auto px-4 lg:px-8"])
                     ].join(" ")}
                     aria-labelledby={`${this.props.id}-title`}
-                    role="article">
+                    role="article"
+                    tabIndex={-1}>
       <h2 className={[
         "text-5xl font-semibold text-obsidian dark:text-white my-10",
         ...(this.props.srOnly ? ["hidden"] : []),

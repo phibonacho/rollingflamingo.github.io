@@ -30,11 +30,13 @@ export default function Footer(props: IFooterProps) {
                 {
                   title: "Projects",
                   link: "#projects",
-                  scroll: true,
+                  description: 'Scroll to project section',
+                  scroll: true
                 },
                 {
                   title: "About",
                   link: "#about",
+                  description: 'Scroll to about section',
                   scroll: true
                 }
               ]}/>
