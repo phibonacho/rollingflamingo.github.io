@@ -54,7 +54,10 @@ export default function FullWidthProject(props: IFullWidthProject) {
         lowerDecoration: props.theme? `${props.theme}-dark` : 'obsidian'
     };
 
-    return <article ref={containerRef} className={`full-width-project bg-${colors.background} dark:bg-zinc-900`} id={`${props.title}-section`} aria-labelledby={`${props.title}-title`}>
+    return <article ref={containerRef}
+                    id={`${props.title}-section`}
+                    className={`full-width-project bg-${colors.background} dark:bg-transparent`}
+                    aria-labelledby={`${props.title}-title`}>
         <div className="min-h-screen xl:max-w-screen-xxl lg:max-w-screen-md mx-auto px-2 py-20 md:p-20  flex flex-row flex-wrap items-center">
             <div className="xl:order-2 flex-auto xl:flex-1-60 flex flex-col xl:pl-32 pb-20 relative">
                 <div className="project-image" style={({ backgroundImage: `url(${props.image})`})}>

@@ -7,6 +7,7 @@ export const Header = (props: INavbarProps) => {
   const selector: RefObject<HTMLHeadElement> = createRef();
   const matchMedia = window.matchMedia("(prefers-color-scheme: light)");
   const [ color, setColor ] = useState(matchMedia.matches? '255, 255, 255' : '24, 24, 27');
+
   useEffect(() => {
 
     matchMedia.addEventListener('change', e => {

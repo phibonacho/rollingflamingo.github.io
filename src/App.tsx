@@ -2,21 +2,22 @@ import React, {useEffect} from 'react';
 import {gsap} from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+import Herschel from "./media/images/herschel.webp";
+import Tiresia from "./media/images/tiresia.webp";
+import Coeus from "./media/images/coeus.webp";
+import Ponos from "./media/images/ponos.webp";
 import './App.scss';
 
 import HeroBanner from "./component/hero-banner/HeroBanner";
 import "./component/fontawesome/fontawesome";
-import { Header } from "./component/header/Header";
+import {Header} from "./component/header/Header";
 import Section from "./component/section/Section";
-import Herschel from "./media/images/herschel.png";
-import Tiresia from "./media/images/tiresia.png";
-import Coeus from "./media/images/coeus.png";
-import Ponos from "./media/images/ponos.png";
-import NavMenu from "./component/header/NavMenu";
+import {NavMenu} from "./component/header/NavMenu";
 import Experience from "./component/timeline/Experience";
 import Footer from "./component/footer/Footer";
 import FullWidthProject, {IFullWidthProject} from "./component/projects/FullWIdthProject";
 import {Logo} from "./component/logo/Logo";
+import ContactDialog from "./component/contactDialog/ContactDialog";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,33 +59,44 @@ let projects: IFullWidthProject[] = [
     theme: 'yellow'
   }
 ];
-
 export default function App(props: IAppProps){
+  const mobileMedia = window.matchMedia(`(max-width: 576px)`);
+
   useEffect(() => {
-    let tl = gsap.timeline({
+    let mobile = mobileMedia.matches, tl = gsap.timeline({
       scrollTrigger: {
         trigger: '#about',
         start: 'top bottom',
-        end: 'top 80px',
+        end: mobile ? 'bottom center' : 'top 80px',
         scrub: .1
       }
     });
-    tl
-        .from('#first-exp', { y: 60, scale: .8, opacity: 0 })
-        .from('#second-exp', { y:40, scale: .8, opacity: 0 }, 0)
-        .from('#third-exp', { y:40, scale: .8, opacity: 0 }, .2)
-        .from('#fourth-exp', { y:40, scale: .8, opacity: 0 }, .4)
-        .from('#fifth-exp', { y: 60, scale: .8, opacity: 0 }, .6);
-  }, []);
+
+    if(mobile)
+      tl.clear()
+          .from('#first-exp', { y: 60, scale: .8, opacity: 0 }, )
+          .from('#second-exp', { y:40, scale: .8, opacity: 0 })
+          .from('#third-exp', { y:40, scale: .8, opacity: 0 })
+          .from('#fourth-exp', { y:40, scale: .8, opacity: 0 })
+          .from('#fifth-exp', { y: 60, scale: .8, opacity: 0 });
+    else
+      tl.clear()
+          .from('#first-exp', { y: 60, scale: .8, opacity: 0 })
+          .from('#second-exp', { y:40, scale: .8, opacity: 0 },  0)
+          .from('#third-exp', { y:40, scale: .8, opacity: 0 },  .2)
+          .from('#fourth-exp', { y:40, scale: .8, opacity: 0 }, .4)
+          .from('#fifth-exp', { y: 60, scale: .8, opacity: 0 },  .6);
+
+  });
 
   return (
       <>
         <Header
             leftContent={
-              <Logo attrs={{
-                onClick: () => window.scroll({ top: 0, left: 0, behavior: "smooth"})
-              }
-              }/>
+              <button title='Scroll back to top' aria-label={'Scroll back to top'} onClick={() => window.scroll({ top: 0, left: 0, behavior: "smooth"})}>
+                <Logo/>
+                <span className='hidden'>Scroll back to top</span>
+              </button>
             }
             rightContent={
 
@@ -94,17 +106,19 @@ export default function App(props: IAppProps){
                     {
                       title: "Projects",
                       link: "#projects",
+                      description: 'Scroll to project section',
                       scroll: true
                     },
                     {
                       title: "About",
                       link: "#about",
+                      description: 'Scroll to about section',
                       scroll: true
                     }
                   ]}/>
             }
         />
-        <main className="App">
+        <main>
           <HeroBanner/>
           <Section id={'projects'} title={'Projects'} fullWidth>
             {
@@ -174,6 +188,7 @@ export default function App(props: IAppProps){
           </Section>
         </main>
         <Footer/>
+        <ContactDialog/>
       </>
   );
 }
