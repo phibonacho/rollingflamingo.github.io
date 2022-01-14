@@ -18,6 +18,7 @@ import Footer from "./component/footer/Footer";
 import FullWidthProject, {IFullWidthProject} from "./component/projects/FullWIdthProject";
 import {Logo} from "./component/logo/Logo";
 import ContactDialog from "./component/contactDialog/ContactDialog";
+import Menu, {MenuButton} from "./component/menu/Menu";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,7 +29,7 @@ interface IAppProps {
 let projects: IFullWidthProject[] = [
   {
     title: 'Herschel',
-    description: 'Herschel has been the first web project I worked on, it consisted in a fake web portal to book space travels to other planets. ',
+    description: 'Herschel has been the first web project I worked on, it consisted in a fake web portal to book space travels to other planets.',
     tags: ["web<br>pack", "j<br>query", "yarn", "boot<br>strap"],
     image: Herschel,
     link: 'https://github.com/non-sono-bello-ma-patcho/startsaw-herschel',
@@ -99,23 +100,27 @@ export default function App(props: IAppProps){
               </button>
             }
             rightContent={
-
-              <NavMenu
-                  description={"Page sections"}
-                  entries={[
-                    {
-                      title: "Projects",
-                      link: "#projects",
-                      description: 'Scroll to project section',
-                      scroll: true
-                    },
-                    {
-                      title: "About",
-                      link: "#about",
-                      description: 'Scroll to about section',
-                      scroll: true
-                    }
-                  ]}/>
+              <div className='flex flex-row'>
+                <div className='flex-auto'>
+                  <NavMenu
+                      description={"Page sections"}
+                      entries={[
+                        {
+                          title: "Projects",
+                          link: "#projects",
+                          description: 'Scroll to project section',
+                          scroll: true
+                        },
+                        {
+                          title: "About",
+                          link: "#about",
+                          description: 'Scroll to about section',
+                          scroll: true
+                        }
+                      ]}/>
+                </div>
+                <MenuButton/>
+              </div>
             }
         />
         <main>
@@ -189,6 +194,7 @@ export default function App(props: IAppProps){
         </main>
         <Footer/>
         <ContactDialog/>
+        <Menu/>
       </>
   );
 }

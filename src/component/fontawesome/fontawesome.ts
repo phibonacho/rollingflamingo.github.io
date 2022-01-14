@@ -7,6 +7,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons/faHeart";
 import { faExternalLinkSquareAlt } from "@fortawesome/free-solid-svg-icons/faExternalLinkSquareAlt";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
 import { faTimes } from "@fortawesome/free-solid-svg-icons/faTimes";
+import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
 
 library.add(
     // brand
@@ -19,5 +20,6 @@ library.add(
     faHeart,
     faExternalLinkSquareAlt,
     faTimes,
-    faEnvelope
+    faEnvelope,
+    faBars
 );
