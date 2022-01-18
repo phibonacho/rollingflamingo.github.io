@@ -25,13 +25,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "yarn graphics && react-scripts build",
+    "build": "yarn clean && yarn graphics && yarn api-types && react-scripts build",
     "test": "react-scripts test",
     "generate-bg": "node trianglify_background.js",
     "deploy": "gh-pages -d build",
-    "graphics": "rm -rf ./src/component/graphics/* && svgr -d ./src/component/graphics ./src/media/graphics/*.svg --typescript",
-    "api-schema": "apollo schema:download --endpoint=http://localhost:1337/graphql src/api/schema.json",
-    "api-types": "apollo client:codegen src/api/types --endpoint=http://localhost:1337/graphql --globalTypesFile src/api/globalTypes.d.ts --target=typescript --tagName=gql --outputFlat"
+    "clean-graphics": "rm -rf ./src/component/graphics/*",
+    "graphics": "svgr -d ./src/component/graphics ./src/media/graphics/*.svg --typescript",
+    "api-types": "apollo client:codegen src/api/types --endpoint=http://localhost:1337/graphql --globalTypesFile src/api/globalTypes.d.ts --target=typescript --tagName=gql --outputFlat",
+    "clean-api-types": "rm -rf ./src/api/types",
+    "clean": "yarn clean-graphics && yarn clean-api-types"
   },
   "eslintConfig": {
     "extends": [
