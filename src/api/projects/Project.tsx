@@ -57,7 +57,7 @@ export default function useAsyncProjects() {
                 description: description,
                 link: link,
                 theme: theme,
-                image: `${process.env.REACT_APP_STRAPI_HOST}${image?.data?.attributes?.url}` || '',
+                image: `${image?.data?.attributes?.url}` || '',
                 tags: tags?.data.map(tag => ({
                     name: tag.attributes?.name,
                     display: tag.attributes?.display
