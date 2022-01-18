@@ -5,40 +5,62 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   safelist: [
     'bg-blue',
-    'bg-blue-darkest',
-    'bg-blue-dark',
     'bg-pink',
+    'bg-red',
     'bg-purple',
-    'bg-purple-dark',
-    'bg-teal',
-    'bg-teal-dark',
     'bg-yellow',
+    'bg-teal',
+
+    'bg-blue-dark',
+    'bg-pink-dark',
+    'bg-red-dark',
+    'bg-purple-dark',
+    'bg-teal-dark',
     'bg-yellow-dark',
-    'dark:text-blue',
+
+    'bg-blue-darkest',
+
     'text-blue-dark',
+    'text-pink-dark',
+    'text-red-dark',
+    'text-purple-dark',
+    'text-teal-dark',
+    'text-yellow-dark',
+
     'text-blue-darkest',
     'text-pink-darkest',
-    'dark:text-purple',
-    'text-purple-dark',
+    'text-red-darkest',
     'text-purple-darkest',
-    'dark:text-teal',
-    'text-teal-dark',
     'text-teal-darkest',
-    'dark:text-yellow',
-    'text-yellow-dark',
     'text-yellow-darkest',
-    'text-pink-dark',
-    'dark:border-blue',
+
     'border-blue-darkest',
     'border-pink-darkest',
-    'dark:border-purple',
+    'border-red-darkest',
     'border-purple-darkest',
-    'dark:border-teal',
     'border-teal-darkest',
-    'dark:border-yellow',
-    'border-yellow-darkest'
+    'border-yellow-darkest',
+
+    'dark:text-blue',
+    'dark:text-pink',
+    'dark:text-red',
+    'dark:text-purple',
+    'dark:text-teal',
+    'dark:text-yellow',
+
+    'dark:border-blue',
+    'dark:border-pink',
+    'dark:border-red',
+    'dark:border-purple',
+    'dark:border-teal',
+    'dark:border-yellow'
   ],
   theme: {
+    minHeight: {
+      '16': '4rem',
+      '24': '6rem',
+      ...defaultTheme.minHeight
+    },
     zIndex: {
       '25': 25,
       '50': 50,
@@ -76,6 +98,11 @@ module.exports = {
           DEFAULT: '#F0C4AB',
           dark: '#EAAA86',
           darkest: '#DA6E2F',
+        },
+        red: {
+          DEFAULT: '#FFADB8',
+          dark: '#FF334E',
+          darkest: '#7A0010'
         },
         purple: {
           DEFAULT: '#9e9be3',

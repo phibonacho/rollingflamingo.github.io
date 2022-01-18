@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.5.5",
     "@fortawesome/fontawesome-free": "^5.15.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
@@ -28,7 +29,9 @@
     "test": "react-scripts test",
     "generate-bg": "node trianglify_background.js",
     "deploy": "gh-pages -d build",
-    "graphics": "rm -rf ./src/component/graphics/* && svgr -d ./src/component/graphics ./src/media/graphics/*.svg --typescript"
+    "graphics": "rm -rf ./src/component/graphics/* && svgr -d ./src/component/graphics ./src/media/graphics/*.svg --typescript",
+    "api-schema": "apollo schema:download --endpoint=http://localhost:1337/graphql src/api/schema.json",
+    "api-types": "apollo client:codegen src/api/types --endpoint=http://localhost:1337/graphql --globalTypesFile src/api/globalTypes.d.ts --target=typescript --tagName=gql --outputFlat"
   },
   "eslintConfig": {
     "extends": [
@@ -110,7 +113,7 @@
     "@reduxjs/toolkit": "^1.7.1",
     "@svgr/cli": "5.4.0",
     "@tailwindcss/line-clamp": "^0.2.1",
-    "@types/trianglify": "^1.2.0",
+    "apollo": "^2.33.4",
     "autoprefixer": "^10.4.2",
     "gsap": "^3.9.1",
     "postcss": "^8.4.5",

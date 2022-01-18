@@ -5,17 +5,50 @@ import "./fwProject.scss";
 import ProjectDecorationUp from "../graphics/ProjectDecorationUp";
 import ProjectDecorationDown from "../graphics/ProjectDecorationDown";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Project} from "../../api/projects/Project";
 
-export interface IFullWidthProject {
-    title: string;
-    description: string;
-    tags: string[];
-    image: string;
-    link: string;
-    theme?: 'blue' | 'pink' | 'purple' | 'teal' | 'yellow';
+export interface IFullWidthProject extends Project {
+
 }
 
 const rangedRandom = (min: number, max: number) => Math.random() * (max - min) + min;
+
+export function LoadingFWP() {
+
+    let colors = {
+        background: 'white',
+        text: 'blue-darkest',
+        upperDecoration: 'muted-light',
+        lowerDecoration: 'obsidian'
+    };
+
+    return <article
+        id='loading-fwp'
+        className={`full-width-project bg-${colors.background} dark:bg-transparent animate-pulse`}>
+        <div className="min-h-screen xl:max-w-screen-xxl lg:max-w-screen-md mx-auto px-2 py-20 md:p-20  flex flex-row flex-wrap items-center">
+            <div className="xl:order-2 flex-full xl:flex-1-60 flex flex-col xl:pl-32 pb-20 relative">
+                <div className="project-image bg-blue-darkest">
+                </div>
+            </div>
+            <div className={`flex-auto xl:flex-1-40 flex flex-col`}>
+                <div className={`flex-1-60 min-h-24 w-full rounded bg-${colors.text} dark:bg-${colors.background}`}>
+                </div>
+                <div className={`my-8 min-h-16 w-full rounded bg-${colors.text} dark:bg-${colors.background}`}>
+                </div>
+                <div className={`w-max flex flex-row flex-wrap justify-between border-t-4 border-${colors.text} dark:border-${colors.background} py-5`}>
+                    <div className={`min-h-24 w-24 mx-1 rounded bg-${colors.text} dark:bg-${colors.background}`}>
+                    </div>
+                    <div className={`min-h-24 w-24 mx-1 rounded bg-${colors.text} dark:bg-${colors.background}`}>
+                    </div>
+                    <div className={`min-h-24 w-24 mx-1 rounded bg-${colors.text} dark:bg-${colors.background}`}>
+                    </div>
+                    <div className={`min-h-24 w-24 mx-1 rounded bg-${colors.text} dark:bg-${colors.background}`}>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>;
+}
 
 export default function FullWidthProject(props: IFullWidthProject) {
     const containerRef = useRef(null);
@@ -66,17 +99,18 @@ export default function FullWidthProject(props: IFullWidthProject) {
                 <ProjectDecorationDown viewBox="0 0 136 138" className={`project-dd hidden md:block absolute fill-current text-${colors.lowerDecoration}`} style={({ bottom: 90, right: 120 })}/>
             </div>
             <div className={`flex-auto xl:flex-1-40 flex flex-col text-${colors.text} dark:text-${colors.background} md:tracking-widest`}>
-                <p className="flex-1-60 text-xl">
+                <p className="flex-1-60 text-lg md:text-xl">
                     { props.description }
                 </p>
-                <h3 className="my-8 text-6xl md:text-7xl uppercase font-semibold" id={`${props.title}-title`}>{props.title}
-                    <a href={props.link} rel="noreferrer" target="_blank" className="text-2xl align-top" title={`Visit ${props.title} in another tab`} aria-label={`Visit ${props.title} in another tab`}><span className="hidden">open link in a new tab</span><FontAwesomeIcon icon={["fas", "external-link-square-alt"]} className="mx-1"/></a></h3>
+                <h3 className="my-8 text-4xl md:text-6xl uppercase font-semibold" id={`${props.title}-title`}>{props.title}
+                    <a href={props.link} rel="noreferrer" target="_blank" className="text-xl md:text-2xl align-top" title={`Visit ${props.title} in another tab`} aria-label={`Visit ${props.title} in another tab`}><span className="hidden">open link in a new tab</span><FontAwesomeIcon icon={["fas", "external-link-square-alt"]} className="mx-1"/></a></h3>
                 <ul className={`w-max flex flex-row flex-wrap justify-between border-t-4 border-${colors.text} dark:border-${colors.background} py-5`}>
                     { props.tags.map((li, i) =>
                         <li key={i}
                             className={`flex flex-col justify-center text-base font-semibold uppercase ${i === 0 ? '' : 'ml-14'}`}
                             style={({ overflowWrap: 'break-word' })}
-                            dangerouslySetInnerHTML={({__html: li})}>
+                            aria-label={li.name}
+                            dangerouslySetInnerHTML={({__html: li.display})}>
                         </li>)
                     }
                 </ul>

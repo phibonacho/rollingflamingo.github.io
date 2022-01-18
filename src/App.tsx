@@ -2,10 +2,6 @@ import React, {useEffect} from 'react';
 import {gsap} from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-import Herschel from "./media/images/herschel.webp";
-import Tiresia from "./media/images/tiresia.webp";
-import Coeus from "./media/images/coeus.webp";
-import Ponos from "./media/images/ponos.webp";
 import './App.scss';
 
 import HeroBanner from "./component/hero-banner/HeroBanner";
@@ -15,9 +11,9 @@ import Section from "./component/section/Section";
 import {NavMenu} from "./component/header/NavMenu";
 import Experience from "./component/timeline/Experience";
 import Footer from "./component/footer/Footer";
-import FullWidthProject, {IFullWidthProject} from "./component/projects/FullWIdthProject";
 import {Logo} from "./component/logo/Logo";
 import ContactDialog from "./component/contactDialog/ContactDialog";
+import ProjectSection from "./component/projects/ProjectSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,40 +21,6 @@ interface IAppProps {
 
 }
 
-let projects: IFullWidthProject[] = [
-  {
-    title: 'Herschel',
-    description: 'Herschel has been the first web project I worked on, it consisted in a fake web portal to book space travels to other planets. ',
-    tags: ["web<br>pack", "j<br>query", "yarn", "boot<br>strap"],
-    image: Herschel,
-    link: 'https://github.com/non-sono-bello-ma-patcho/startsaw-herschel',
-    theme: "purple"
-  },
-  {
-    title: 'Tiresia',
-    description: 'Tiresia was my first attempt to build a progressive webapp, it is written in Vue.js and it is basically a random number picker I build for fun.',
-    tags: ['vue', "web<br>pack", "pwa"],
-    image: Tiresia,
-    link: 'https://www.andreastorace.it/tiresia',
-    theme: 'teal'
-  },
-  {
-    title: 'Ponos',
-    description: 'Ponos is an abstract annotation evaluator built in Java. This library provide a tool to define Java object evaluators without the hassle of re-implement the evualtion algorithm. It only requires a reduction algorithm and the target annotation.',
-    tags: ['java', "ref<br>lec<br>tion", "ann<br>ota<br>tion", "pro<br>ces<br>sor"],
-    image: Ponos,
-    link: 'https://github.com/rollingflamingo/ponos',
-    theme: "blue"
-  },
-  {
-    title: 'Coeus',
-    description: 'Coeus is a simple vulnerability scanner written in node.js it provides a simple and customizable way to perform attacks on a specified host.',
-    tags: ['vuln<br>erab<br>ility', "sec<br>uri<br>ty", "sql<br>Inje<br>ction", "cmd<br>Inje<br>ction"],
-    image: Coeus,
-    link: 'https://github.com/rollingflamingo/coeus',
-    theme: 'yellow'
-  }
-];
 export default function App(props: IAppProps){
   const mobileMedia = window.matchMedia(`(max-width: 576px)`);
 
@@ -120,11 +82,7 @@ export default function App(props: IAppProps){
         />
         <main>
           <HeroBanner/>
-          <Section id={'projects'} title={'Projects'} fullWidth>
-            {
-              projects.map((p, i) => <FullWidthProject key={i} {...p}/>)
-            }
-          </Section>
+          <ProjectSection/>
           <Section id={"about"} title={"About me"}>
             <div className="flex flex-row flex-wrap">
               <div id="first-exp" className='flex xl:order-3 xl:flex-1-33 flex-full justify-center xl:justify-start'>
