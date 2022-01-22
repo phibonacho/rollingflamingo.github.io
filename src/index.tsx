@@ -8,8 +8,6 @@ import reportWebVitals from './reportWebVitals';
 import {ApolloProvider} from "@apollo/client";
 import {client} from "./api/apollo";
 
-console.log(process.env)
-
 ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>

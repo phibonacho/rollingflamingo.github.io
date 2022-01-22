@@ -7,8 +7,6 @@ import Me from "../../media/images/cloud-me.webp";
 import SvgCloudTriangleLg from "../graphics/CloudTriangleLg";
 import {ContactButton} from "../contactDialog/ContactDialog";
 
-let description: string = "Frontend developer, Humanities computing student and plant enthusiast. Always looking for new technologies and frameworks to mess up my projects. This is my portfolio, please don't leave! I don't ask for cookies!";
-
 export default class HeroBanner extends React.Component<IHeroBannerProps, IHeroBannerState> {
   public render() {
     return <div className="hero-banner" role='banner'>
@@ -16,11 +14,11 @@ export default class HeroBanner extends React.Component<IHeroBannerProps, IHeroB
         <div className="flex flex-col justify-between sm:h-full xl:h-96">
           <div className="title-wrapper">
             <CloudTriangleMd className="fill-current text-blue dark:text-obsidian xl:hidden"/>
-            <h1 className="text-4xl lg:text-5xl text-obsidian dark:text-blue font-bold">It's-a me, Andreo!</h1>
+            <h1 className="text-4xl lg:text-5xl text-obsidian dark:text-blue font-bold">{ this.props.title }</h1>
           </div>
           <p className="text-base text-dark dark:text-white xl:line-clamp-5 mx-10 my-10 md:hidden">
             {
-              description
+              this.props.description
             }
           </p>
           <ContactButton cta={"Let's get in touch!"} attrs={{
@@ -32,7 +30,7 @@ export default class HeroBanner extends React.Component<IHeroBannerProps, IHeroB
         <div className="hidden md:flex md:flex-col xl:hidden">
           <p className="text-base text-dark dark:text-white line-clamp-7 m-10">
             {
-              description
+              this.props.description
             }
           </p>
           <ContactButton cta={"Let's get in touch!"}/>
