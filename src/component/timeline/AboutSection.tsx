@@ -34,7 +34,7 @@ export default function AboutSection(props: {}) {
                 .from('#fourth-exp', { y:40, scale: .8, opacity: 0 }, .4)
                 .from('#fifth-exp', { y: 60, scale: .8, opacity: 0 },  .6);
 
-    }, []);
+    });
 
     return <Section id={"about"} title={"About me"}>
         <div className="flex flex-row flex-wrap" ref={sectionRef}>
