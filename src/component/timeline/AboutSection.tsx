@@ -1,5 +1,5 @@
 import Experience from "./Experience";
-import {Section} from "../section/Section";
+import Section from "../section/Section";
 import React, {useEffect, useRef} from "react";
 import {gsap} from "gsap";
 

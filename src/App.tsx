@@ -7,7 +7,7 @@ import './App.scss';
 import HeroBanner from "./component/hero-banner/HeroBanner";
 import "./component/fontawesome/fontawesome";
 import {Header} from "./component/header/Header";
-import {Section} from "./component/section/Section";
+import Section from "./component/section/Section";
 import {NavMenu} from "./component/header/NavMenu";
 import Footer from "./component/footer/Footer";
 import {Logo} from "./component/logo/Logo";
