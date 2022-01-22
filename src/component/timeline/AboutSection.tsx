@@ -4,12 +4,10 @@ import React, {useEffect, useRef} from "react";
 import {gsap} from "gsap";
 
 export default function AboutSection(props: {}) {
-    const mobileMedia = window.matchMedia(`(max-width: 576px)`);
     const sectionRef = useRef<HTMLDivElement>(null);
 
-
     useEffect(() => {
-        let mobile = mobileMedia.matches;
+        const mobile = window.matchMedia(`(max-width: 576px)`).matches;
         const { current } = sectionRef;
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -33,8 +31,7 @@ export default function AboutSection(props: {}) {
                 .from('#third-exp', { y:40, scale: .8, opacity: 0 },  .2)
                 .from('#fourth-exp', { y:40, scale: .8, opacity: 0 }, .4)
                 .from('#fifth-exp', { y: 60, scale: .8, opacity: 0 },  .6);
-
-    });
+    }, []);
 
     return <Section id={"about"} title={"About me"}>
         <div className="flex flex-row flex-wrap" ref={sectionRef}>
