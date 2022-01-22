@@ -33,7 +33,7 @@
     "graphics": "svgr -d ./src/component/graphics ./src/media/graphics/*.svg --typescript",
     "api-types": "apollo client:codegen src/api/types --endpoint=http://localhost:1337/graphql --globalTypesFile src/api/types/globalTypes.d.ts --target=typescript --tagName=gql --outputFlat",
     "clean-api-types": "rm -rf ./src/api/types",
-    "clean": "yarn clean-graphics && yarn clean-api-types"
+    "clean": "yarn clean-graphics"
   },
   "eslintConfig": {
     "extends": [
