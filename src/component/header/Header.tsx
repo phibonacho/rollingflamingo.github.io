@@ -1,15 +1,18 @@
 import {createRef, RefObject, useEffect, useState} from "react";
 import {gsap} from 'gsap';
 import INavbarProps from "./IHeader";
-import './header.scss';
+import styles from './header.module.scss';
 
 export const Header = (props: INavbarProps) => {
+  const {'main-container': mainContainer, 'left-container': leftContainer, 'right-container': rightContainer, 'custom-navbar': customNavbar} = styles;
+  const {leftContent, rightContent} = props;
+
   const selector: RefObject<HTMLHeadElement> = createRef();
-  const matchMedia = window.matchMedia("(prefers-color-scheme: light)");
-  const [ color, setColor ] = useState(matchMedia.matches? '255, 255, 255' : '24, 24, 27');
+  const [ color, setColor ] = useState('');
 
   useEffect(() => {
-
+    const matchMedia = window.matchMedia("(prefers-color-scheme: light)");
+    setColor(matchMedia.matches? '255, 255, 255' : '24, 24, 27');
     matchMedia.addEventListener('change', e => {
       setColor(e.matches ? '255, 255, 255' : '24, 24, 27');
     });
@@ -26,13 +29,13 @@ export const Header = (props: INavbarProps) => {
   });
 
   return (
-      <header ref={selector} className={`custom-navbar z-40`} style={{ backgroundColor: `rgba(${color}, 0)`}}>
-        <div className={'main-container'}>
-          <div className={'left-container'}>
-            { props.leftContent }
+      <header ref={selector} className={customNavbar} style={{ backgroundColor: `rgba(${color}, 0)`}}>
+        <div className={mainContainer}>
+          <div className={leftContainer}>
+            { leftContent }
           </div>
-          <div className={'right-container'}>
-            { props.rightContent }
+          <div className={rightContainer}>
+            {  rightContent }
           </div>
         </div>
       </header>);

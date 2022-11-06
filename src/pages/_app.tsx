@@ -1,23 +1,25 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useLayoutEffect} from 'react';
 import {gsap} from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-import Herschel from "./media/images/herschel.webp";
-import Tiresia from "./media/images/tiresia.webp";
-import Coeus from "./media/images/coeus.webp";
-import Ponos from "./media/images/ponos.webp";
-import './App.scss';
+import Herschel from "/public/media/images/herschel.webp";
+import Tiresia from "/public/media/images/tiresia.webp";
+import Coeus from "/public/media/images/coeus.webp";
+import Ponos from "/public/media/images/ponos.webp";
+import '../App.scss';
 
-import HeroBanner from "./component/hero-banner/HeroBanner";
-import "./component/fontawesome/fontawesome";
-import {Header} from "./component/header/Header";
-import Section from "./component/section/Section";
-import {NavMenu} from "./component/header/NavMenu";
-import Experience from "./component/timeline/Experience";
-import Footer from "./component/footer/Footer";
-import FullWidthProject, {IFullWidthProject} from "./component/projects/FullWIdthProject";
-import {Logo} from "./component/logo/Logo";
-import ContactDialog from "./component/contactDialog/ContactDialog";
+import HeroBanner from "../component/hero-banner/HeroBanner";
+import "../component/fontawesome/fontawesome";
+import {Header} from "../component/header/Header";
+import Section from "../component/section/Section";
+import {NavMenu} from "../component/header/NavMenu";
+import Experience from "../component/timeline/Experience";
+import Footer from "../component/footer/Footer";
+import FullWidthProject, {IFullWidthProject} from "../component/projects/FullWIdthProject";
+import {Logo} from "../component/logo/Logo";
+import ContactDialog from "../component/contactDialog/ContactDialog";
+import {store} from "../store";
+import {Provider} from "react-redux";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,9 +62,8 @@ let projects: IFullWidthProject[] = [
   }
 ];
 export default function App(props: IAppProps){
-  const mobileMedia = window.matchMedia(`(max-width: 576px)`);
-
   useEffect(() => {
+    const mobileMedia = window.matchMedia(`(max-width: 576px)`);
     let mobile = mobileMedia.matches, tl = gsap.timeline({
       scrollTrigger: {
         trigger: '#about',
@@ -90,7 +91,7 @@ export default function App(props: IAppProps){
   });
 
   return (
-      <>
+      <Provider store={store}>
         <Header
             leftContent={
               <button title='Scroll back to top' aria-label={'Scroll back to top'} onClick={() => window.scroll({ top: 0, left: 0, behavior: "smooth"})}>
@@ -189,6 +190,6 @@ export default function App(props: IAppProps){
         </main>
         <Footer/>
         <ContactDialog/>
-      </>
+      </Provider>
   );
 }

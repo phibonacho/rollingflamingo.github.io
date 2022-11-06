@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import "./footer.scss";
+import styles from "./footer.module.scss";
 import { NavMenu } from "../header/NavMenu";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Logo} from "../logo/Logo";

@@ -11,18 +11,20 @@ export interface ILogoProps {
 }
 
 export const Logo = (props: ILogoProps) => {
-    const matchMedia = window.matchMedia("(prefers-color-scheme: light)");
-    const [ renderLogo, setRenderLogo ] = useState(matchMedia.matches
-        ? (props.white ? <TextLogoWhite {...props.attrs}/> : <TextLogo {...props.attrs} />)
-        : <TextLogoSemiDark {...props.attrs} />);
+
+    const [ renderLogo, setRenderLogo ] = useState(<TextLogo {...props.attrs} />);
 
     useEffect(() => {
+        const matchMedia = window.matchMedia("(prefers-color-scheme: light)");
+        setRenderLogo(matchMedia.matches
+            ? (props.white ? <TextLogoWhite {...props.attrs}/> : <TextLogo {...props.attrs} />)
+            : <TextLogoSemiDark {...props.attrs} />)
         matchMedia.addEventListener('change', e => {
             setRenderLogo(e.matches
                 ? (props.white ? <TextLogoWhite {...props.attrs}/> : <TextLogo {...props.attrs} />)
                 : <TextLogoSemiDark {...props.attrs} />);
         });
-    });
+    }, []);
 
     return renderLogo;
 };

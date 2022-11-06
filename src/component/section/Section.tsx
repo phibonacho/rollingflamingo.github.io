@@ -1,25 +1,26 @@
-import * as React from 'react';
-import ISectionProps, {ISectionState} from "./ISection";
+import {FC} from 'react';
+import ISectionProps from "./ISection";
 
-import './section.scss';
+import styles from './section.module.scss';
 
-export default class Section extends React.Component<ISectionProps, ISectionState> {
-
-  public render() {
-    return <section id={this.props.id}
+const Section: FC<ISectionProps> = (props) => {
+    const {section} = styles;
+    const {id, fullWidth, srOnly, title, children} = props;
+    return <section id={id}
                     className={[
-                        "section",
-                      ...(this.props.fullWidth ? [""] : ["max-w-screen-xxl mx-auto px-4 lg:px-8"])
+                        section,
+                      ...(fullWidth ? [""] : ["max-w-screen-xxl mx-auto px-4 lg:px-8"])
                     ].join(" ")}
-                    aria-labelledby={`${this.props.id}-title`}
+                    aria-labelledby={`${id}-title`}
                     role="article"
                     tabIndex={-1}>
       <h2 className={[
         "text-5xl font-semibold text-obsidian dark:text-white my-10",
-        ...(this.props.srOnly ? ["hidden"] : []),
-        ...(this.props.fullWidth ? ["max-w-screen-xxl mx-auto pl-28"] : ["md:ml-20"])
-      ].join(" ")} id={`${this.props.id}-title`}>{ this.props.title }</h2>
-      { this.props.children }
+        ...(srOnly ? ["hidden"] : []),
+        ...(fullWidth ? ["max-w-screen-xxl mx-auto pl-28"] : ["md:ml-20"])
+      ].join(" ")} id={`${id}-title`}>{ title }</h2>
+      { children }
     </section>;
-  }
 }
+
+export default Section;

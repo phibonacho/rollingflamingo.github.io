@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {gsap} from 'gsap';
-import "./fwProject.scss";
+import styles from "./fwProject.module.scss";
 
 import ProjectDecorationUp from "../graphics/ProjectDecorationUp";
 import ProjectDecorationDown from "../graphics/ProjectDecorationDown";
@@ -19,6 +19,7 @@ const rangedRandom = (min: number, max: number) => Math.random() * (max - min) +
 
 export default function FullWidthProject(props: IFullWidthProject) {
     const containerRef = useRef(null);
+    const {'project-image': projectImage} = styles;
     useEffect(() => {
         const current = containerRef.current;
 
@@ -32,7 +33,7 @@ export default function FullWidthProject(props: IFullWidthProject) {
         });
 
         // @ts-ignore
-        const selector = current.querySelector('.project-image');
+        const selector = current.querySelector('.' + projectImage);
         // @ts-ignore
         const d1 = current.querySelector('.project-ud');
         // @ts-ignore
@@ -60,7 +61,7 @@ export default function FullWidthProject(props: IFullWidthProject) {
                     aria-labelledby={`${props.title}-title`}>
         <div className="min-h-screen xl:max-w-screen-xxl lg:max-w-screen-md mx-auto px-2 py-20 md:p-20  flex flex-row flex-wrap items-center">
             <div className="xl:order-2 flex-auto xl:flex-1-60 flex flex-col xl:pl-32 pb-20 relative">
-                <div className="project-image" style={({ backgroundImage: `url(${props.image})`})}>
+                <div className={projectImage} style={({ backgroundImage: `url(${props.image})`})}>
                 </div>
                 <ProjectDecorationUp viewBox="0 0 221 209" className={`project-ud hidden md:block fill-current text-${colors.upperDecoration} absolute`} style={({ top: 0, right: 120 })} />
                 <ProjectDecorationDown viewBox="0 0 136 138" className={`project-dd hidden md:block absolute fill-current text-${colors.lowerDecoration}`} style={({ bottom: 90, right: 120 })}/>

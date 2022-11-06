@@ -49,7 +49,7 @@ export const ContactButton = (props: IContactButton) => {
 
 export default function ContactDialog(props: IContactDialog) {
     const show = useSelector((state: RootState) => state.dialog.dialogs)
-        .find(d => d.ref === ref)?.show;
+        .find((d: any) => d.ref === ref)?.show;
     const dispatch = useDispatch();
     const hide = () => dispatch(toggle({ ref: ref, show: false}));
     const closeButtonRef = useRef(null);

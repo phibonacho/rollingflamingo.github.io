@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./header.scss";
+import "./header.module.scss";
 
 export interface INavMenuProps {
   description: string;
