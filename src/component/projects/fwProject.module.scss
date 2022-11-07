@@ -1,14 +1,17 @@
-.full-width-project {
-  .project-image {
-    aspect-ratio: 640 / 550;
-    mask-image: url("/public/media/graphics/project-image.svg");
-    mask-repeat: no-repeat;
-    mask-size: contain;
-    background-size: cover;
-    background-position: center;
+.project-image {
+  width: 100%;
+  aspect-ratio: 640 / 550;
+  mask-image: url("/media/graphics/project-image.svg"); // /public is omitted.
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  background-size: cover;
+  background-position: center;
 
-    @supports not (aspect-ratio: 640/550) {
-      padding-top: 100%;
-    }
+  @supports not (aspect-ratio: 640/550) {
+    padding-top: 100%;
+  }
+
+  img {
+    @apply w-full h-full object-cover;
   }
 }

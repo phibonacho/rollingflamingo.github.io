@@ -11,8 +11,8 @@ import Image from "next/image";
 let description: string = "Frontend developer, Humanities computing student and plant enthusiast. Always looking for new technologies and frameworks to mess up my projects. This is my portfolio, please don't leave! I don't ask for cookies!";
 
 const HeroBanner = (props: IHeroBannerProps) => {
-    const {'hero-banner': heroBanner} = styles;
-    return <div className={heroBanner} role='banner'>
+    const {wrapper, cloud__container, cloud__image} = styles;
+    return <div className={wrapper} role='banner'>
         <div className="col-span-7 md:col-span-6 p-10 lg:p-20 self-center mx-auto">
             <div className="flex flex-col justify-between sm:h-full xl:h-96">
                 <div className="title-wrapper">
@@ -24,9 +24,7 @@ const HeroBanner = (props: IHeroBannerProps) => {
                         description
                     }
                 </p>
-                <ContactButton cta={"Let's get in touch!"} attrs={{
-                    className: 'sm:hidden lg:block'
-                }}/>
+                <ContactButton cta={"Let's get in touch!"}/>
             </div>
         </div>
         <div className="hidden md:block md:col-span-6 p-10 lg:p-20 self-center">
@@ -38,9 +36,8 @@ const HeroBanner = (props: IHeroBannerProps) => {
                 </p>
                 <ContactButton cta={"Let's get in touch!"}/>
             </div>
-            <div className="hidden xl:block relative cloud-image">
-                <SvgCloudTriangleLg className="fill-current text-blue" id={'triangle'}/>
-                <Image id='me' src={Me} alt="me in pain" decoding={'async'}/>
+            <div className={cloud__container}>
+                <Image className={cloud__image} src={Me} alt="me in pain" decoding={'async'}/>
             </div>
         </div>
     </div>;

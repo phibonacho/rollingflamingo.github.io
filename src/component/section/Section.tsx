@@ -1,12 +1,12 @@
-import {FC} from 'react';
+import React, {FC, PropsWithChildren} from 'react';
 import ISectionProps from "./ISection";
 
 import styles from './section.module.scss';
 
-const Section: FC<ISectionProps> = (props) => {
+const Section = React.forwardRef<any, PropsWithChildren<ISectionProps>>((props, ref) => {
     const {section} = styles;
     const {id, fullWidth, srOnly, title, children} = props;
-    return <section id={id}
+    return <section ref={ref} id={id}
                     className={[
                         section,
                       ...(fullWidth ? [""] : ["max-w-screen-xxl mx-auto px-4 lg:px-8"])
@@ -21,6 +21,6 @@ const Section: FC<ISectionProps> = (props) => {
       ].join(" ")} id={`${id}-title`}>{ title }</h2>
       { children }
     </section>;
-}
+});
 
 export default Section;

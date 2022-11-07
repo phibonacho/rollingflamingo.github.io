@@ -1,0 +1,15 @@
+query fetchProjects {
+    allProject {
+        title
+        descriptionRaw
+        tags
+        image {
+            asset {
+                _id
+            }
+            caption
+        }
+        link
+        theme
+    }
+}

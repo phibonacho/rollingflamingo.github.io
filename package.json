@@ -9,14 +9,21 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.19",
+    "@portabletext/react": "^2.0.0",
+    "@sanity/image-url": "^1.0.1",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.3",
     "@types/react": "^17.0.52",
     "@types/react-dom": "^17.0.18",
+    "framer-motion": "^7.6.5",
+    "graphql": "^16.3.0",
+    "graphql-request": "^4.2.0",
+    "graphql-tag": "^2.12.6",
     "next": "^13.0.2",
+    "next-sanity": "^1.0.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "^7.2.9",
@@ -27,7 +34,8 @@
     "start": "next start",
     "build": "yarn graphics && next build",
     "dev": "next dev",
-    "graphics": "rm -rf ./src/component/graphics/* && svgr -d ./src/component/graphics ./public/media/graphics/*.svg --typescript"
+    "graphics": "rm -rf ./src/component/graphics/* && svgr -d ./src/component/graphics ./public/media/graphics/*.svg --typescript",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "eslintConfig": {
     "extends": [
@@ -47,64 +55,18 @@
       "last 1 safari version"
     ]
   },
-  "jest": {
-    "roots": [
-      "<rootDir>/src"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
-    ],
-    "setupFiles": [
-      "react-app-polyfill/jsdom"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/setupTests.ts"
-    ],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
-    ],
-    "testEnvironment": "jsdom",
-    "testRunner": "/home/phibonachos/WebstormProjects/rollingflamingo.github.io/node_modules/jest-circus/runner.js",
-    "transform": {
-      "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
-      "^.+\\.module\\.(css|sass|scss)$"
-    ],
-    "modulePaths": [],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web",
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
-    },
-    "moduleFileExtensions": [
-      "web.js",
-      "js",
-      "web.ts",
-      "ts",
-      "web.tsx",
-      "tsx",
-      "json",
-      "web.jsx",
-      "jsx",
-      "node"
-    ],
-    "watchPlugins": [
-      "jest-watch-typeahead/filename",
-      "jest-watch-typeahead/testname"
-    ],
-    "resetMocks": true
-  },
   "babel": {
     "presets": [
       "react-app"
     ]
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.6.2",
+    "@graphql-codegen/introspection": "2.1.1",
+    "@graphql-codegen/typescript": "2.4.8",
+    "@graphql-codegen/typescript-document-nodes": "2.2.8",
+    "@graphql-codegen/typescript-graphql-files-modules": "2.1.1",
+    "@graphql-codegen/typescript-operations": "2.3.5",
     "@headlessui/react": "^1.7.4",
     "@reduxjs/toolkit": "^1.9.0",
     "@svgr/cli": "5.4.0",

@@ -7,7 +7,7 @@ class MyDocument extends Document {
             <Html lang="en">
                 <Head>
                     <meta charSet="utf-8"/>
-                    <link rel="icon" href="/public/favicon.ico"/>
+                    <link rel="icon" href="/favicon.ico"/>
                     <meta name="theme-color" content="#FFF"/>
                     <meta
                         name="description"

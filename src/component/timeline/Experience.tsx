@@ -6,7 +6,7 @@ import Variant1 from "../graphics/Variant1";
 import Variant2 from "../graphics/Variant2";
 import Variant3 from "../graphics/Variant3";
 import Variant4 from "../graphics/Variant4";
-import {useMemo} from "react";
+import {useMemo, useRef} from "react";
 
 export interface IExperienceProps {
     name: string;
@@ -41,6 +41,7 @@ const Experience = (props: IExperienceProps) => {
                                  style={{position: "absolute", top: 30, left: 60}}/>;
         }
     }, [certificate, variant]);
+
     return <div
         className={`flex flex-row justify-end relative ${wrapper} ${certificate ? wrapperCertificate : ''} ${className}`}>
         {
@@ -54,12 +55,12 @@ const Experience = (props: IExperienceProps) => {
             "line-clamp-1"].join(" ")
         }>{period}</span>
             <h3 className={[
-                (certificate ? "text-xl" : "text-3xl"),
-                (certificate ? "dark:text-pink" : "dark:text-blue"),
-                "text-dark",
-                "font-semibold",
-                "line-clamp-2"].join(" ")
-            }>{name}</h3>
+                    (certificate ? "text-xl" : "text-3xl"),
+                    (certificate ? "dark:text-pink" : "dark:text-blue"),
+                    "text-dark",
+                    "font-semibold",
+                    "line-clamp-2"].join(" ")
+                }>{name}</h3>
             <p className="text-base text-dark dark:text-white line-clamp-4">
           <span className={[
               (certificate ? "text-xs" : "text-base"),
