@@ -9,7 +9,7 @@ export default class Disclaimer extends React.Component<IDisclaimerProps, IDiscl
 
   public render() {
     return (<div className={`disclaimer ${this.context.theme}`}>
-      <div className={'disclaimer-header'}>
+      <div className={'disclaimer-navbar'}>
         <h2>{this.props.title}</h2>
       </div>
       <div className={'disclaimer-body'}>

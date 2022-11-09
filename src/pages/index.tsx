@@ -4,21 +4,37 @@ import HeroBanner from "../component/hero-banner/HeroBanner";
 import Section from "../component/section/Section";
 import FullWidthProject from "../component/projects/FullWIdthProject";
 import Experience from "../component/timeline/Experience";
-import React, {ForwardedRef, PropsWithChildren, RefObject, useEffect, useRef} from "react";
+import React, {PropsWithChildren, RefObject, useEffect, useRef, useState} from "react";
 import {ProjectElement} from "../services/model/ProjectElement";
 import {motion} from "framer-motion";
+import Carousel from "../component/carousel/Carousel";
 
 const Home = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     const {projects} = props;
     const expRef = useRef<any>(null);
+    const [tablist, setTablist] = useState(false);
 
+    useEffect(() => {
+        const mediaQuery = window.matchMedia(`(max-width: 1024px)`);
+        const changeHandler = () => setTablist(!mediaQuery.matches);
 
-    return <main className={'mt-[30px] md:mt-0'}>
+        setTablist(!mediaQuery.matches);
+
+        mediaQuery.addEventListener('change', changeHandler);
+
+        return () => {
+            mediaQuery.removeEventListener('change', changeHandler);
+        };
+    }, []);
+
+    return <main className={''}>
         <HeroBanner/>
         <Section id={'projects'} title={'Projects'} fullWidth>
-            {
-                projects.map((p: ProjectElement, i: number) => <FullWidthProject key={i} {...p}/>)
-            }
+            <Carousel tablist={!tablist}>
+                {
+                    projects.map((p: ProjectElement, i: number) => <FullWidthProject key={i} {...p}/>)
+                }
+            </Carousel>
         </Section>
         <Section ref={expRef} id={"about"} title={"About me"}>
             <div className="flex flex-row flex-wrap">
@@ -83,22 +99,22 @@ const Home = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => 
                     </ScrollAnimate>
                 </div>
             </div>
-        </Section>
-        <Section id={"about-me"} title='About me' srOnly>
-            <div className='grid grid-cols-12 gap-4'>
-                <div
-                    className='col-span-12 md:col-span-5 lg:col-span-4 xl:col-span-3 text-center md:text-right self-center'>
-                    <h3 className='font-bold text-5xl text-obsidian dark:text-white pb-4'>Keep<br/>on<br/>learning</h3>
+            <Section id={"about-me"} title='About me' srOnly>
+                <div className='grid grid-cols-12 gap-4'>
+                    <div
+                        className='col-span-12 md:col-span-5 lg:col-span-4 xl:col-span-3 text-center md:text-right self-center'>
+                        <h3 className='font-bold text-5xl text-obsidian dark:text-white pb-4'>Keep<br/>on<br/>learning</h3>
+                    </div>
+                    <div className='col-span-12 md:col-span-7 lg:col-span-8 xl:col-span-9 self-center lg:line-clamp-6'>
+                        <p className='dark:text-white'>I'm a former computer science student keen on illustration and
+                            nature. I've always been curious about how things works and how they are built, computer science
+                            gave me the chance to widen this interest from mechanical world to computer's one. Problem
+                            solving shouldn't be limited to solve a problem by providing the answer or a solution, it should
+                            include creating a framework for the users to use for recognizing and overcome similar issues, a
+                            solution that grows and improves with the user, for the user.</p>
+                    </div>
                 </div>
-                <div className='col-span-12 md:col-span-7 lg:col-span-8 xl:col-span-9 self-center lg:line-clamp-6'>
-                    <p className='dark:text-white'>I'm a former computer science student keen on illustration and
-                        nature. I've always been curious about how things works and how they are built, computer science
-                        gave me the chance to widen this interest from mechanical world to computer's one. Problem
-                        solving shouldn't be limited to solve a problem by providing the answer or a solution, it should
-                        include creating a framework for the users to use for recognizing and overcome similar issues, a
-                        solution that grows and improves with the user, for the user.</p>
-                </div>
-            </div>
+            </Section>
         </Section>
     </main>;
 };

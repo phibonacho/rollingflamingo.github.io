@@ -6,7 +6,7 @@ import Variant1 from "../graphics/Variant1";
 import Variant2 from "../graphics/Variant2";
 import Variant3 from "../graphics/Variant3";
 import Variant4 from "../graphics/Variant4";
-import {useMemo, useRef} from "react";
+import {useMemo} from "react";
 
 export interface IExperienceProps {
     name: string;

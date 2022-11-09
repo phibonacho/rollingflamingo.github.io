@@ -1,0 +1,49 @@
+$themes: 'blue', 'pink', 'teal', 'purple', 'yellow';
+
+.container {
+  @apply overflow-hidden px-3 md:px-0 min-h-full flex flex-col justify-center;
+}
+
+.content__wrapper {
+  @apply xl:max-w-screen-xxl lg:max-w-screen-md mx-auto grid xl:grid-cols-2 gap-4 md:gap-16 items-center pt-12 p-4 md:p-16 rounded-xl grow;
+}
+
+.content__info {
+  @apply h-fit flex flex-col p-4 md:p-8 rounded-lg;
+}
+
+.content__title {
+  @apply my-4 md:my-8 text-5xl md:text-7xl uppercase font-semibold;
+}
+
+.content__description {
+  @apply md:text-xl mb-8;
+}
+
+.content__image {
+  @apply hidden lg:block xl:order-2  relative;
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 640 / 550;
+  mask-image: url("/media/graphics/project-image.svg"); // /public is omitted.
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  background-size: cover;
+  background-position: center;
+
+  @supports not (aspect-ratio: 640/550) {
+    padding-top: 100%;
+  }
+
+  img {
+    @apply w-full h-full object-cover;
+  }
+}
+
+@each $theme in $themes {
+  .content__wrapper--#{$theme} {
+    @apply bg-#{$theme} dark:bg-transparent text-#{$theme}-darkest dark:text-#{$theme}
+  }
+}

@@ -1,26 +1,33 @@
-import React, {useEffect, useRef, useState} from 'react';
-import styles from "./fwProject.module.scss";
+import React, {useEffect, useRef} from 'react';
+import styles from "./project.module.scss";
 
 import ProjectDecorationUp from "../graphics/ProjectDecorationUp";
 import ProjectDecorationDown from "../graphics/ProjectDecorationDown";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {ProjectElement} from "../../services/model/ProjectElement";
 import Image from "next/image";
 import {PortableText} from "@portabletext/react";
-import {motion, MotionValue, useScroll, useTransform} from "framer-motion";
+import {motion, useScroll} from "framer-motion";
 import useTransforms from "../hooks/useTransforms";
+import {LinkIcon} from "@heroicons/react/20/solid";
 
 export interface IFullWidthProject extends ProjectElement {
 }
 
 export default function FullWidthProject({theme, title, caption, image, tags, link, description}: IFullWidthProject) {
     const imageRef = useRef(null);
-    const {'project-image': projectImage} = styles;
-    const {scrollYProgress} = useScroll({target: imageRef, offset: ["start end", "end start"]});
+    const {
+        'project-image': projectImage,
+        container,
+        content__wrapper,
+        content__info,
+        content__image,
+        content__title,
+        content__description
+    } = styles;
+    const {scrollXProgress} = useScroll({target: imageRef, offset: ["start end", "end start"]});
 
-    const [scale, rotate, y, rotate1, y1, rotate2, y2] = useTransforms(scrollYProgress,
-        [1.2, 1],
-        [-15, 0], [-20, 20],
+    const [scale, rotate, rotate1, y1, rotate2, y2] = useTransforms(scrollXProgress,
+        [1.1, 1], [-15, 0],
         [-10, 10], [-40, 30],
         [10, -10], [30, -30]
     );
@@ -33,40 +40,58 @@ export default function FullWidthProject({theme, title, caption, image, tags, li
         lowerDecoration: theme ? `${theme}-dark` : 'obsidian'
     };
 
-    return <article
-        id={`${title}-section`}
-        className={`full-width-project bg-${colors.background} dark:bg-transparent overflow-hidden  px-3 md:px-0`}
-        aria-labelledby={`${title}-title`}>
-        <div
-            className="min-h-screen xl:max-w-screen-xxl lg:max-w-screen-md mx-auto px-2 py-20 md:p-20  flex flex-row flex-wrap items-center">
-            <div className="xl:order-2 flex-auto xl:flex-1-60 flex flex-col xl:pl-32 pb-20 relative">
-                <motion.div style={{rotate, y, scale}}>
+    useEffect(() => {
+    }, []);
+
+    const image_animation = {
+        far: {
+            rotate: -15, y: 100, scale: .7
+        },
+        near: {
+            rotate: 0, y: 0, scale: 1
+        }
+    }
+
+    const decorations = {
+        far: (i: number) => ({
+            rotate: i * 10,
+            y: i * 30
+        }),
+        near: (i: number) => ({
+            rotate: i * -10,
+            y: i * -30,
+            transition: {stiffness: 75, duration: .4}
+        })
+    }
+
+    return <article id={`${title}-section`} className={container}>
+        <div className={[content__wrapper, styles[`content__wrapper--${theme}`]].join(' ')}>
+            <div className={content__image}>
+                <motion.div variants={image_animation} initial={"far"} animate={"near"}
+                            transition={{stiffness: 75, duration: .3}}>
                     <div ref={imageRef} className={projectImage}>
                         <Image src={image} alt={caption} width={1920} height={1080}/>
                     </div>
                 </motion.div>
-                <motion.div style={{ rotate: rotate1, y: y1, top: 0, right: 120, position: 'absolute'}}>
+                <motion.div custom={1} variants={decorations} initial={"far"} animate={"near"} style={{top: 0, right: 120, position: 'absolute'}}>
                     <ProjectDecorationUp viewBox="0 0 221 209"
-                                         className={`project-ud hidden md:block fill-current text-${colors.upperDecoration}`}
-                                         />
+                                         className={`project-ud hidden xl:block fill-current text-${colors.upperDecoration}`}
+                    />
                 </motion.div>
-                <motion.div style={{rotate: rotate2, y: y2, bottom: 90, right: 120, position: 'absolute'}}>
+                <motion.div custom={-1} variants={decorations} initial={"far"} animate={"near"} style={{bottom: 90, right: 120, position: 'absolute'}}>
                     <ProjectDecorationDown viewBox="0 0 136 138"
-                                           className={`project-dd hidden md:block fill-current text-${colors.lowerDecoration}`}
-                                           />
+                                           className={`project-dd hidden xl:block fill-current text-${colors.lowerDecoration}`}
+                    />
                 </motion.div>
             </div>
-            <div
-                className={`flex-auto xl:flex-1-40 xl:max-w-[40%] flex flex-col text-${colors.text} dark:text-${colors.background} md:tracking-widest`}>
-                <div className="flex-1-60 md:text-xl">
+            <div className={[content__info].join(' ')}>
+                <a href={link} rel="noreferrer" target="_blank" className="text-2xl align-top">
+                    <span className="hidden">open link in a new tab</span>
+                    <h3 className={content__title} id={`${title}-title`}>{title} <LinkIcon className={'fill-current h-12 w-12 inline-block'}/></h3>
+                </a>
+                <div className={content__description}>
                     <PortableText value={description}/>
                 </div>
-                <h3 className="my-8 text-6xl md:text-7xl uppercase font-semibold"
-                    id={`${title}-title`}>{title}
-                    <a href={link} rel="noreferrer" target="_blank" className="text-2xl align-top"
-                       title={`Visit ${title} in another tab`} aria-label={`Visit ${title} in another tab`}><span
-                        className="hidden">open link in a new tab</span><FontAwesomeIcon
-                        icon={["fas", "external-link-square-alt"]} className="mx-1"/></a></h3>
                 <ul className={`grid grid-cols-6 gap-4 border-t-4 border-${colors.text} dark:border-${colors.background} py-5 max-w-[390px]`}>
                     {tags.map((li, i) =>
                         <li key={i}

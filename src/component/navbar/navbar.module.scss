@@ -1,0 +1,80 @@
+.wrapper {
+  @apply w-screen fixed top-0 bg-transparent p-6 lg:py-9 lg:px-28 flex z-[40] border-b-2 border-transparent dark:text-white;
+  transition: all .2s ease;
+}
+
+.body {
+  @apply flex flex-row self-center justify-between w-full items-center;
+}
+
+.logo {
+  @apply flex flex-col justify-center;
+}
+
+.menu {
+  @apply absolute inset-0 h-screen transition-all ease-linear ;
+
+  @screen lg {
+    @apply h-full static flex flex-row;
+  }
+}
+
+.menuButton {
+  @apply lg:hidden p-4;
+}
+
+.menuButton__decorator {
+  @apply lg:hidden h-5 w-5;
+}
+
+.menu__wrapper {
+  @apply h-screen flex flex-col bg-white dark:bg-zinc-900 dark:text-white;
+
+  @screen sm {
+    @apply border-l border-zinc-800;
+  }
+
+  @screen lg {
+    @apply h-fit border-l-0;
+  }
+}
+
+.menu__header {
+  @apply w-full flex justify-end h-20 px-6;
+
+  @screen lg {
+    @apply hidden;
+  }
+}
+
+.menu__list {
+  @apply flex flex-col px-4 w-screen grow;
+
+  @screen sm {
+    @apply max-w-screen-xs;
+  }
+
+  @screen lg {
+    @apply w-full flex-row px-0 max-w-full;
+  }
+}
+
+.menu__list--flat {
+  @apply flex-row w-full grow-0;
+}
+
+.menu__item {
+  @apply uppercase px-6 sm:px-3 xl:px-8;
+
+  &:not(:last-child) {
+    @apply mb-4
+  }
+
+  a {
+    @apply w-full text-left block;
+  }
+}
+
+.menu__list--flat .menu__item {
+  @apply mb-0;
+}

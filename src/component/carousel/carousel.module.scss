@@ -1,0 +1,35 @@
+.container {
+  @apply relative mx-auto;
+}
+
+.tabList {
+  @apply absolute inset-x-0 bottom-0 flex flex-row justify-center z-[10];
+}
+
+.tabList__tab {
+  @apply p-4 flex flex-row
+}
+
+.control {
+  @apply absolute top-1/2 -translate-y-1/2 z-[10] text-zinc-900 dark:text-white disabled:text-zinc-500;
+}
+
+.control__decoration {
+  @apply h-12 w-12 fill-current;
+}
+
+.control--prev {
+  @apply left-4;
+}
+
+.control--next {
+  @apply right-4;
+}
+
+.slides__container {
+  @apply relative overflow-clip flex flex-row;
+}
+
+.slide__wrapper {
+  @apply w-full h-[80vh] md:h-fit;
+}

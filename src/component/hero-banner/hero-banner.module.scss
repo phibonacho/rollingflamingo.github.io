@@ -1,22 +1,50 @@
-.wrapper {
-  scroll-snap-align: start;
-  @apply m-auto max-w-screen-xxl box-border h-screen grid md:grid-cols-12 grid-cols-7;
-  // background image section end
+.container {
+  @apply min-h-screen flex flex-col justify-center relative;
 }
 
-.cloud__container {
-  position: relative;
+.content__grid {
+  @apply max-w-screen-xxl sm:grid grid-cols-12 mx-auto z-[20];
+}
+
+.content__wrapper {
+  @apply min-h-[60vh] md:min-h-fit flex flex-col justify-between col-span-6 xxl:col-span-5 p-6 xs:p-10 lg:p-20 self-center mx-auto text-white md:text-black;
+}
+
+.content__title {
+  @apply text-4xl lg:text-5xl dark:text-blue font-bold uppercase;
+}
+
+.content__description {
+  @apply dark:text-white mb-10 hidden sm:block
+}
+
+.content__cta {
+  @apply mx-auto text-center;
+}
+
+.content__image {
+  @apply col-span-6 hidden md:block relative;
+}
+
+.background {
+  @apply absolute inset-0 z-[10] object-cover w-full h-full md:hidden object-left;
+}
+
+.image__mask {
   width: 100%;
-  height: 550px;
-  @apply hidden xl:block relative;
-}
+  aspect-ratio: 1 / 1;
+  mask-image: url("/media/graphics/banner-image.svg"); // /public is omitted.
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  background-size: cover;
+  background-position: center;
 
-.cloud__image {
-  position: absolute;
-  height: 550px;
-  top: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  object-fit: contain;
+  @supports not (aspect-ratio: 640/550) {
+    padding-top: 100%;
+  }
+
+  img {
+    @apply w-full h-full object-cover;
+  }
 }
 

@@ -2,7 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   darkMode: 'media',
-  content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  content: ['./src/**/*.{js,jsx,ts,tsx,scss}', './public/index.html'],
   safelist: [
     'bg-blue',
     'bg-blue-darkest',
@@ -55,10 +55,11 @@ module.exports = {
     },
     flexGrow: {
       '2': 2,
-      '3': 3
+      '3': 3,
+      ...defaultTheme.flexGrow
     },
     screens: {
-      xs: '0',
+      xs: '390px',
       sm: '576px',
       md: '768px',
       lg: '992px',
@@ -101,6 +102,11 @@ module.exports = {
           DEFAUTL: '#5C5C5C',
         },
         light: '#E0E0E0'
+      },
+      backgroundImage: {
+        'hero-banner-lg': 'url(/media/images/hero-banner.png)',
+        'hero-banner-xl': 'url(/media/images/hero-banner-xl.png)',
+        'hero-banner-sm': 'url(/media/images/hero-banner-mobile.png)'
       },
       lineClamp: {
         7: '7',

@@ -1,28 +1,27 @@
 import {useEffect, useState} from "react";
 
 import TextLogo from "../graphics/TextLogo";
-import TextLogoSemiDark from "../graphics/TextLogoSemiDark";
 import * as React from "react";
-import TextLogoWhite from "../graphics/TextLogoWhite";
+import NewLogo from "../graphics/NewLogo";
+import NewLogoDark from "../graphics/NewLogoDark";
 
-export interface ILogoProps {
-    white?: boolean;
-    attrs?: React.SVGProps<SVGSVGElement>;
-}
+export interface ILogoProps extends React.SVGProps<SVGSVGElement>{}
 
-export const Logo = (props: ILogoProps) => {
+export const Logo = ({...rest}: ILogoProps) => {
 
-    const [ renderLogo, setRenderLogo ] = useState(<TextLogo {...props.attrs} />);
+    const [ renderLogo, setRenderLogo ] = useState(<NewLogo {...rest} />);
+
+    const updateLogo = (test: boolean) => {
+        setRenderLogo(test
+            ? <NewLogoDark {...rest} />
+            : <NewLogo {...rest}/>)
+    };
 
     useEffect(() => {
         const matchMedia = window.matchMedia("(prefers-color-scheme: light)");
-        setRenderLogo(matchMedia.matches
-            ? (props.white ? <TextLogoWhite {...props.attrs}/> : <TextLogo {...props.attrs} />)
-            : <TextLogoSemiDark {...props.attrs} />)
+        updateLogo(matchMedia.matches);
         matchMedia.addEventListener('change', e => {
-            setRenderLogo(e.matches
-                ? (props.white ? <TextLogoWhite {...props.attrs}/> : <TextLogo {...props.attrs} />)
-                : <TextLogoSemiDark {...props.attrs} />);
+            updateLogo(e.matches);
         });
     }, []);
 

@@ -30,84 +30,8 @@ body {
   }
 }
 
-.title-wrapper {
-  position: relative;
 
-  h1 {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-  }
 
-  @screen xl {
-    position: initial;
+.bg-particles {
 
-    h1 {
-      position: initial;
-    }
-  }
-
-}
-
-.working-experiences {
-  display: flex;
-  flex-flow: row wrap;
-
-  .first-exp {
-    /*    @include media-breakpoint-up(lg) {
-          order: 3;
-          flex: 1 0 33%;
-        }*/
-
-    /*    @include media-breakpoint-between(sm, lg) {
-          flex: 3 0 auto;
-        }*/
-  }
-
-  .second-exp {
-    /*    @include media-breakpoint-up(lg) {
-          order: 1;
-          flex: 2 0 50%;
-          display: flex;
-          justify-content: flex-end;
-        }
-        @include media-breakpoint-between(sm, lg) {
-          order: 3;
-          flex: 1 0 60%;
-        }*/
-  }
-
-  .third-exp {
-    /*    @include media-breakpoint-up(lg) {
-          order: 4;
-          flex: 1 0 auto;
-        }
-        @include media-breakpoint-between(sm, lg) {
-          order: 2;
-          flex: 1 0 40%;
-        }*/
-  }
-
-  .fourth-exp {
-    /*    @include media-breakpoint-up(lg) {
-          order: 2;
-          flex: 1 0 50%;
-          display: flex;
-          justify-content: flex-start;
-        }
-        @include media-breakpoint-between(sm, lg) {
-          order: 4;
-          flex: 3 0 auto;
-          display: flex;
-          justify-content: flex-end;
-        }*/
-
-  }
-
-  .last-exp {
-    order: 5;
-    /*    @include media-breakpoint-up(lg) {
-          flex: 1 0 33%;
-        }*/
-  }
 }
